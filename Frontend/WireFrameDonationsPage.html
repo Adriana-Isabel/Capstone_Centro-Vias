@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Wireframe – Donations Page</title>
+    <script src="./vendor/react.js"></script>
+    <script src="./vendor/react-dom.js"></script>
+    <script src="./support.js"></script>
+  </head>
+  <body>
+    <x-dc>
+      <helmet>
+        <style>
+          body {
+            margin: 0;
+            background: #161616;
+            display: flex;
+            justify-content: center;
+          }
+          x-dc {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+          }
+          * {
+            box-sizing: border-box;
+          }
+          .wf {
+            width: 1200px;
+            margin: 0 auto;
+            background: #161616;
+            color: #d6d6d6;
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            font-size: 15px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+          }
+          .bx {
+            border: 1px dashed #7a7a7a;
+            border-radius: 10px;
+            padding: 18px 22px;
+          }
+          .hd {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+          .hd b {
+            font-size: 17px;
+            color: #fff;
+          }
+          .nav {
+            display: flex;
+            gap: 14px;
+            font-size: 14px;
+            color: #cfcfcf;
+          }
+          .nav .on {
+            color: #fff;
+            text-decoration: underline;
+          }
+          .btn {
+            display: inline-block;
+            border: 1px solid #9a9a9a;
+            border-radius: 8px;
+            padding: 12px 22px;
+            color: #fff;
+            font-weight: 600;
+            font-size: 15px;
+            background: #222;
+            text-decoration: none;
+            min-height: 44px;
+          }
+          .dim {
+            color: #b5b5b5;
+            font-size: 14px;
+          }
+          h1,
+          h2,
+          h3,
+          p {
+            margin: 0;
+          }
+          h2 {
+            font-size: 20px;
+            color: #fff;
+          }
+          h3 {
+            font-size: 17px;
+            color: #fff;
+          }
+          .row {
+            display: flex;
+            gap: 16px;
+          }
+          .row > * {
+            flex: 1;
+          }
+          .ph {
+            border: 1px dashed #7a7a7a;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #b5b5b5;
+            font-size: 14px;
+          }
+          label {
+            display: block;
+            color: #fff;
+            font-weight: 600;
+            margin-bottom: 6px;
+          }
+          input[type="text"],
+          input[type="password"] {
+            width: 100%;
+            height: 46px;
+            background: #111;
+            border: 1px solid #8a8a8a;
+            border-radius: 8px;
+            color: #d6d6d6;
+            padding: 0 14px;
+            font-size: 15px;
+          }
+        </style>
+      </helmet>
+      <div class="wf" style="height: 1560px">
+        <div class="bx hd">
+          <b>[ logo ]</b>
+          <div class="nav">
+            <span>Home</span><span>About</span><span>Team</span
+            ><span>Activities</span><span>Admissions</span><span>Volunteer</span
+            ><span class="on">Donations</span><span>Contact</span>
+          </div>
+        </div>
+        <div
+          class="bx"
+          style="
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 30px;
+          "
+        >
+          <h1 style="font-size: 30px; color: #fff">
+            [ page title: Support Centro Vías ]
+          </h1>
+          <p class="dim">
+            [ short intro: how donations help adults with disabilities socialize
+            and be independent ]
+          </p>
+        </div>
+        <div class="row">
+          <div
+            class="bx"
+            style="display: flex; flex-direction: column; gap: 12px"
+          >
+            <h2>ATH Móvil</h2>
+            <p class="dim">
+              [ how to donate: open ATH Móvil → search business name → enter
+              amount ]
+            </p>
+            <div class="ph" style="height: 190px">
+              [ QR code / business name / ATH Móvil logo ]
+            </div>
+            <a class="btn" href="#" style="text-align: center"
+              >Donate with ATH Móvil</a
+            >
+          </div>
+          <div
+            class="bx"
+            style="display: flex; flex-direction: column; gap: 12px"
+          >
+            <h2>Amazon Wishlist</h2>
+            <p class="dim">
+              [ how to give: choose an item → ship to the Center ]
+            </p>
+            <div class="ph" style="height: 190px">
+              [ preview of 3–4 wishlist items ]
+            </div>
+            <a class="btn" href="#" style="text-align: center"
+              >View Wishlist ↗</a
+            >
+          </div>
+        </div>
+        <div
+          class="bx"
+          style="display: flex; flex-direction: column; gap: 12px"
+        >
+          <h2>Where your support goes</h2>
+          <div class="row">
+            <div class="ph" style="height: 150px">
+              [ icon ] [ activities &amp; excursions ]
+            </div>
+            <div class="ph" style="height: 150px">
+              [ icon ] [ supplies for group activities ]
+            </div>
+            <div class="ph" style="height: 150px">
+              [ icon ] [ Center operations ]
+            </div>
+          </div>
+        </div>
+        <div
+          class="bx"
+          style="display: flex; flex-direction: column; gap: 10px"
+        >
+          <h2>[ testimonial / impact story ]</h2>
+          <div class="row">
+            <div class="ph" style="height: 120px; flex: 0 0 200px">
+              [ photo ]
+            </div>
+            <p class="dim">
+              [ short quote from a guardian or volunteer, with name ]
+            </p>
+          </div>
+        </div>
+        <div
+          class="bx"
+          style="
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
+            text-align: center;
+          "
+        >
+          <h2>Other ways to help</h2>
+          <p class="dim">
+            [ not able to donate? volunteer your time or contact us ]
+          </p>
+          <div style="display: flex; gap: 12px">
+            <a class="btn" href="#">Volunteer</a
+            ><a class="btn" href="#">Contact us</a>
+          </div>
+        </div>
+        <div class="bx dim">
+          [ FAQ / note: questions about donating? Is my donation tax-deductible?
+          (confirm with the Center) ]
+        </div>
+        <div
+          class="bx"
+          style="display: flex; flex-direction: column; gap: 14px"
+        >
+          <div class="row">
+            <div style="display: flex; flex-direction: column; gap: 6px">
+              <b style="color: #fff">[ logo ]</b>
+              <p class="dim">[ short tagline ]</p>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px">
+              <b style="color: #fff">Quick links</b>
+              <p class="dim">
+                Home · About · Team · Activities · Admissions · Volunteer ·
+                Donations · Contact
+              </p>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px">
+              <b style="color: #fff">Contact</b>
+              <p class="dim">[ phone · email · Ponce, PR address ]</p>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px">
+              <b style="color: #fff">Follow us</b>
+              <p class="dim">[ Facebook · Instagram ]</p>
+            </div>
+          </div>
+          <p
+            class="dim"
+            style="
+              border-top: 1px dashed #7a7a7a;
+              padding-top: 12px;
+              text-align: center;
+            "
+          >
+            [ © Centro Vías · Admin login link ]
+          </p>
+        </div>
+      </div>
+    </x-dc>
+    <script
+      type="text/x-dc"
+      data-dc-script
+      data-props='{"$preview":{"width":1200,"height":1560}}'
+    >
+      class Component extends DCLogic {
+      renderVals() { return {}; }
+      }
+    </script>
+  </body>
+</html>

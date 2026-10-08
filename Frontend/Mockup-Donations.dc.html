@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Mockup – Donations Page</title>
+    <script src="./vendor/react.js"></script>
+    <script src="./vendor/react-dom.js"></script>
+    <script src="./support.js"></script>
+  </head>
+  <body>
+    <x-dc>
+      <helmet>
+        <style>
+          @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Nunito+Sans:wght@400;600;700&display=swap");
+          body {
+            margin: 0;
+            background: #f4f9f8;
+          }
+          * {
+            box-sizing: border-box;
+          }
+          .pg {
+            font-family: "Nunito Sans", Arial, sans-serif;
+            font-size: 17px;
+            line-height: 1.55;
+            color: #1e2b2a;
+            background: #f4f9f8;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+          }
+          h1,
+          h2,
+          h3 {
+            font-family: Poppins, Arial, sans-serif;
+            margin: 0;
+            color: #0f4440;
+            line-height: 1.2;
+          }
+          p {
+            margin: 0;
+          }
+          a {
+            color: #0f4440;
+          }
+          :focus-visible {
+            outline: 3px solid #b8442f;
+            outline-offset: 2px;
+          }
+          .w {
+            width: 100%;
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 24px;
+          }
+          .top {
+            background: #fff;
+            border-bottom: 1px solid #d5e5e2;
+          }
+          .top .w {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 76px;
+          }
+          .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: Poppins, Arial, sans-serif;
+            font-weight: 700;
+            color: #0f4440;
+            font-size: 20px;
+            text-decoration: none;
+          }
+          .mark {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #17635f;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+          }
+          nav {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+          }
+          nav a {
+            padding: 10px 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            color: #1e2b2a;
+            border-radius: 8px;
+          }
+          nav a.on {
+            background: #e1f0ee;
+            color: #0f4440;
+          }
+          .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            padding: 0 26px;
+            border-radius: 999px;
+            background: #b8442f;
+            color: #fff;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 17px;
+            border: 2px solid #b8442f;
+          }
+          .btn.alt {
+            background: #fff;
+            color: #0f4440;
+            border-color: #17635f;
+          }
+          .btn.tl {
+            background: #17635f;
+            border-color: #17635f;
+          }
+          .card {
+            background: #fff;
+            border: 1px solid #d5e5e2;
+            border-radius: 20px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+          }
+          .ph {
+            background: #e1f0ee;
+            border: 2px dashed #7fb1ab;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #0f4440;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 10px;
+          }
+          .muted {
+            color: #41524f;
+          }
+          footer {
+            background: #0f4440;
+            color: #e8f3f1;
+            margin-top: auto;
+          }
+          footer a {
+            color: #fff;
+          }
+          .hero {
+            background: #17635f;
+            color: #fff;
+          }
+          .hero h1 {
+            color: #fff;
+            font-size: 44px;
+          }
+          .sec {
+            padding: 56px 0 0;
+          }
+          .g2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+          }
+          .g3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+          }
+          .ic {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            background: #fbe7b0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          ol {
+            margin: 0;
+            padding-left: 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+          }
+          details {
+            background: #fff;
+            border: 1px solid #d5e5e2;
+            border-radius: 14px;
+            padding: 16px 22px;
+          }
+          summary {
+            font-weight: 700;
+            cursor: pointer;
+            color: #0f4440;
+          }
+          .fg {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr 1fr;
+            gap: 32px;
+            padding: 48px 0 32px;
+          }
+          @media (max-width: 800px) {
+            .g2,
+            .g3,
+            .fg {
+              grid-template-columns: 1fr;
+            }
+            .top .w {
+              height: auto;
+              flex-direction: column;
+              padding: 16px 24px;
+            }
+          }
+        </style>
+      </helmet>
+      <div class="pg">
+        <header class="top">
+          <div class="w">
+            <a class="logo" href="#"><span class="mark">CV</span>Centro Vías</a>
+            <nav aria-label="Main">
+              <a href="#">Home</a><a href="#">About</a><a href="#">Team</a
+              ><a href="#">Activities</a><a href="#">Admissions</a
+              ><a href="#">Volunteer</a
+              ><a class="on" href="#" aria-current="page">Donations</a
+              ><a href="#">Contact</a>
+            </nav>
+          </div>
+        </header>
+        <main>
+          <section class="hero">
+            <div
+              class="w"
+              style="
+                padding-top: 64px;
+                padding-bottom: 64px;
+                display: grid;
+                grid-template-columns: 1.3fr 1fr;
+                gap: 40px;
+                align-items: center;
+              "
+            >
+              <div style="display: flex; flex-direction: column; gap: 20px">
+                <h1>Help us build a place to belong</h1>
+                <p style="font-size: 19px; max-width: 520px">
+                  Your support keeps Centro Vías a safe, welcoming space where
+                  adults with disabilities socialize, make friends, and grow in
+                  independence. [ final intro copy from the Center ]
+                </p>
+                <div style="display: flex; gap: 12px; flex-wrap: wrap">
+                  <a class="btn" href="#ways">Ways to give</a
+                  ><a class="btn alt" href="#">Become a volunteer</a>
+                </div>
+              </div>
+              <div
+                class="ph"
+                style="
+                  height: 260px;
+                  background: #1f7a75;
+                  border-color: #9ed0ca;
+                  color: #fff;
+                "
+              >
+                [ photo: participants at an activity ]
+              </div>
+            </div>
+          </section>
+          <div class="w">
+            <section class="sec" id="ways" aria-labelledby="w1">
+              <h2 id="w1" style="font-size: 32px; margin-bottom: 8px">
+                Two easy ways to give
+              </h2>
+              <p class="muted" style="margin-bottom: 24px">
+                Choose whichever works best for you. Every contribution helps.
+              </p>
+              <div class="g2">
+                <div class="card">
+                  <h3 style="font-size: 24px">Donate with ATH Móvil</h3>
+                  <div style="display: flex; gap: 20px; align-items: center">
+                    <div
+                      class="ph"
+                      style="width: 150px; height: 150px; flex: none"
+                    >
+                      [ QR code ]
+                    </div>
+                    <p class="muted">
+                      Scan the code, or search for
+                      <b>[ ATH Móvil business name ]</b> in the app.
+                    </p>
+                  </div>
+                  <ol class="muted">
+                    <li>Open ATH Móvil</li>
+                    <li>Scan the code or search the business name</li>
+                    <li>Enter any amount and confirm</li>
+                  </ol>
+                  <a class="btn" href="#">Donate with ATH Móvil</a>
+                </div>
+                <div class="card">
+                  <h3 style="font-size: 24px">Give from our Amazon Wishlist</h3>
+                  <p class="muted">
+                    Pick an item the Center needs and have it shipped straight
+                    to us. [ shipping note ]
+                  </p>
+                  <div
+                    style="
+                      display: grid;
+                      grid-template-columns: repeat(3, 1fr);
+                      gap: 12px;
+                    "
+                  >
+                    <div class="ph" style="height: 110px">[ item ]</div>
+                    <div class="ph" style="height: 110px">[ item ]</div>
+                    <div class="ph" style="height: 110px">[ item ]</div>
+                  </div>
+                  <a class="btn tl" href="#" style="margin-top: auto"
+                    >View our Wishlist on Amazon ↗</a
+                  >
+                </div>
+              </div>
+            </section>
+            <section class="sec" aria-labelledby="w2">
+              <h2 id="w2" style="font-size: 32px; margin-bottom: 24px">
+                Where your support goes
+              </h2>
+              <div class="g3">
+                <div class="card">
+                  <div class="ic" aria-hidden="true">
+                    <svg
+                      width="30"
+                      height="30"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#0F4440"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <circle cx="12" cy="12" r="9"></circle>
+                      <path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"></path>
+                    </svg>
+                  </div>
+                  <h3>Excursions &amp; outings</h3>
+                  <p class="muted">
+                    Friday trips to parks, movies, and community spaces. [
+                    detail ]
+                  </p>
+                </div>
+                <div class="card">
+                  <div class="ic" aria-hidden="true">
+                    <svg
+                      width="30"
+                      height="30"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#0F4440"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M6 3h12l-1 8a5 5 0 0 1-10 0z"></path>
+                      <path d="M12 16v5M8 21h8"></path>
+                    </svg>
+                  </div>
+                  <h3>Activity supplies</h3>
+                  <p class="muted">
+                    Cooking, puzzles, and games that bring the group together. [
+                    detail ]
+                  </p>
+                </div>
+                <div class="card">
+                  <div class="ic" aria-hidden="true">
+                    <svg
+                      width="30"
+                      height="30"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#0F4440"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"
+                      ></path>
+                      <path d="M9 21v-7h6v7"></path>
+                    </svg>
+                  </div>
+                  <h3>Center operations</h3>
+                  <p class="muted">
+                    Keeping our space open and ready for more participants. [
+                    detail ]
+                  </p>
+                </div>
+              </div>
+            </section>
+            <section class="sec" aria-labelledby="w3">
+              <div
+                class="card"
+                style="
+                  flex-direction: row;
+                  gap: 32px;
+                  align-items: center;
+                  background: #fbf1d4;
+                  border-color: #f0dca0;
+                "
+              >
+                <div
+                  class="ph"
+                  style="
+                    width: 200px;
+                    height: 200px;
+                    flex: none;
+                    background: #fff;
+                  "
+                >
+                  [ photo ]
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 12px">
+                  <h2 id="w3" style="font-size: 26px">
+                    [ Short quote from a guardian or volunteer ]
+                  </h2>
+                  <p class="muted">[ Name, relationship to the Center ]</p>
+                </div>
+              </div>
+            </section>
+            <section class="sec" aria-labelledby="w4">
+              <h2 id="w4" style="font-size: 32px; margin-bottom: 24px">
+                Questions about giving
+              </h2>
+              <div style="display: flex; flex-direction: column; gap: 12px">
+                <details>
+                  <summary>Is my donation tax-deductible?</summary>
+                  <p class="muted" style="margin-top: 10px">
+                    [ answer to be confirmed with the Center ]
+                  </p>
+                </details>
+                <details>
+                  <summary>Can I give my time instead?</summary>
+                  <p class="muted" style="margin-top: 10px">
+                    Yes. Visit our Volunteer page to share your interest.
+                  </p>
+                </details>
+                <details>
+                  <summary>Who do I contact about a donation?</summary>
+                  <p class="muted" style="margin-top: 10px">
+                    [ Contact email / phone ]
+                  </p>
+                </details>
+              </div>
+            </section>
+            <section
+              class="sec"
+              style="padding-bottom: 64px; text-align: center"
+            >
+              <div
+                class="card"
+                style="align-items: center; background: #e1f0ee"
+              >
+                <h2 style="font-size: 28px">Can't donate right now?</h2>
+                <p class="muted">
+                  Volunteering or spreading the word helps just as much.
+                </p>
+                <div
+                  style="
+                    display: flex;
+                    gap: 12px;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                  "
+                >
+                  <a class="btn tl" href="#">Volunteer with us</a
+                  ><a class="btn alt" href="#">Contact us</a>
+                </div>
+              </div>
+            </section>
+          </div>
+        </main>
+        <footer>
+          <div class="w">
+            <div class="fg">
+              <div style="display: flex; flex-direction: column; gap: 10px">
+                <a class="logo" href="#" style="color: #fff"
+                  ><span class="mark" style="background: #fff; color: #0f4440"
+                    >CV</span
+                  >Centro Vías</a
+                >
+                <p>[ short tagline ]</p>
+              </div>
+              <div>
+                <b>Explore</b>
+                <p style="margin-top: 8px; line-height: 2">
+                  <a href="#">About</a><br /><a href="#">Activities</a><br /><a
+                    href="#"
+                    >Admissions</a
+                  ><br /><a href="#">Volunteer</a>
+                </p>
+              </div>
+              <div>
+                <b>Contact</b>
+                <p style="margin-top: 8px">
+                  [ phone ]<br />[ email ]<br />Ponce, Puerto Rico
+                </p>
+              </div>
+              <div>
+                <b>Follow us</b>
+                <p style="margin-top: 8px; line-height: 2">
+                  <a href="#">Facebook</a><br /><a href="#">Instagram</a>
+                </p>
+              </div>
+            </div>
+            <p
+              style="
+                border-top: 1px solid #3b706b;
+                padding: 18px 0;
+                font-size: 15px;
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 8px;
+              "
+            >
+              <span>© Centro Vías. All rights reserved.</span
+              ><a href="#">Admin login</a>
+            </p>
+          </div>
+        </footer>
+      </div>
+    </x-dc>
+    <script
+      type="text/x-dc"
+      data-dc-script
+      data-props='{"$preview":{"width":1280,"height":1900}}'
+    >
+      class Component extends DCLogic {
+      renderVals() { return {}; }
+      }
+    </script>
+  </body>
+</html>
