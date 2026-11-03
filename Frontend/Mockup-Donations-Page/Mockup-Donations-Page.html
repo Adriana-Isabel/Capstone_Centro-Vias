@@ -18,27 +18,25 @@
         />
         <nav>
           <a href="../Landing-Page/Landing-Page.html">Inicio</a>
-          <a href="#">Nosotros</a>
-          <a href="#">Equipo</a>
+          <a href="../Meet-The-Team-Page/Meet-The-Team-Page.html">Equipo</a>
           <a href="#">Actividades</a>
-          <a href="#">Admisiones</a>
-          <a href="#">Voluntariado</a>
           <a href="#" class="on">Donaciones</a>
-          <a href="#">Contacto</a>
+          <a href="../Contact-Admission-Page/Contact-Admissions-Page.html">Contacto</a>
           <a href="../Mockup-Admin-Login/Mockup-Admin-Login.html">Administradores</a>
         </nav>
       </div>
     </header>
     <main
+      id="contenido"
       class="w"
       style="
         display: flex;
         flex-direction: column;
-        gap: 24px;
+        gap: 32px;
         padding-top: 32px;
       "
     >
-      <section
+      <!-- <section
         class="card"
         style="
           text-align: center;
@@ -54,6 +52,18 @@
           Tu generosidad ayuda a adultos con discapacidades a socializar,
           crear amistades y desarrollar su independencia.
         </p>
+      </section> -->
+
+      <section class="card hero" aria-labelledby="titulo">
+        <div class="dot y" aria-hidden="true"></div>
+        <div class="dot b" aria-hidden="true"></div>
+        <div class="dot l" aria-hidden="true"></div>
+        <div class="hero-text">
+          <h1 id="titulo">Apoya a Centro Vías</h1>
+          <p>
+            Tu generosidad ayuda a adultos con discapacidades a socializar, crear amistades y desarrollar su independencia.
+          </p>
+        </div>
       </section>
       <section
         class="g2"
@@ -244,7 +254,7 @@
             <p><a href="#">Facebook</a> · <a href="#">Instagram</a></p>
           </div>
         </div>
-        <div class="fb">© Centro Vías · <a href="#">Inicio de sesión de administrador</a></div>
+        <div class="fb">© Centro Vías · <a href="../Mockup-Admin-Login/Mockup-Admin-Login.html">Inicio de sesión de administrador</a></div>
       </div>
     </footer>
     <script src="Mockup-Donations-Page.js"></script>

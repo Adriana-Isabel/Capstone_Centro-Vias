@@ -10,7 +10,7 @@
   --mut: #55624F;
   --ln: #DCE7D7;
 }
-
+/* hw */
 * {
   box-sizing: border-box;
 }
@@ -221,4 +221,135 @@ footer a {
   .lg {
     grid-template-columns: 1fr !important;
   }
+}
+
+a:focus-visible,
+.btn:focus-visible,
+summary:focus-visible {
+    outline: 3px solid #3A56D6;
+    outline-offset: 3px;
+}
+
+footer a:focus-visible,
+.hero a:focus-visible {
+    outline-color: #fff;
+}
+
+.skip {
+    position: absolute;
+    left: -9999px;
+    top: 8px;
+    background: var(--gd);
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 8px;
+    z-index: 10;
+}
+
+.skip:focus {
+    left: 8px;
+}
+
+.sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    padding: 56px 40px 60px;
+    background: var(--gd);
+    border-color: var(--gd);
+}
+
+.hero .dot {
+    position: absolute;
+    border-radius: 50%;
+}
+
+.hero .dot.y {
+    width: 240px;
+    height: 240px;
+    right: -70px;
+    top: -70px;
+    background: var(--y);
+}
+
+.hero .dot.b {
+    width: 120px;
+    height: 120px;
+    right: 220px;
+    bottom: -50px;
+    background: var(--b);
+}
+
+.hero .dot.l {
+    width: 40px;
+    height: 40px;
+    right: 110px;
+    top: 110px;
+    background: #FBF6D6;
+}
+
+.hero-text {
+    position: relative;
+    max-width: 640px;
+}
+
+.hero h1 {
+    color: #fff;
+    font-size: 52px;
+    margin-bottom: 16px;
+}
+
+.hero p {
+    color: #fff;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.sec-title {
+    font-size: 30px;
+}
+
+@media (max-width: 900px) {
+
+    .paths,
+    .layout {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding: 36px 22px 44px;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .hero .dot.y {
+        width: 150px;
+        height: 150px;
+        right: -50px;
+        top: -50px;
+    }
+
+    .hero .dot.b,
+    .hero .dot.l {
+        display: none;
+    }
+
+    .panel-head,
+    .panel-body {
+        padding: 22px 18px;
+    }
+
+    .panel-head h2 {
+        font-size: 30px;
+    }
 }
