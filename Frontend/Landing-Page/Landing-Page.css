@@ -111,31 +111,64 @@ nav a.on {
 
 .hero-blue {
   position: absolute;
-  top: 8px;
-  left: 4%;
-  width: 88%;
-  height: 76%;
+  z-index: 2;
+  top: 22px;
+  left: 5%;
+  width: 86%;
+  height: 68%;
   display: grid;
   place-items: center;
-  border: 5px solid var(--blue);
-  border-radius: 47% 50% 46% 48%;
-  background: var(--blue);
-  box-shadow: inset 0 0 0 5px #fff;
-  transform: rotate(-4deg);
+  border: 6px solid #fff;
+  border-radius: 30px 30px 22px 22px;
+  background: linear-gradient(140deg, #6684ff, #4968e6);
+  box-shadow: 0 0 0 4px var(--blue), 0 18px 34px #344db233;
+  transform: rotate(-3deg);
 }
 
-.hero-blue h1 {
-  color: #fff;
-  font-size: clamp(32px, 4vw, 54px);
-  line-height: 1.2;
+.welcome-sign {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  padding: 28px 20px;
   text-align: center;
+  transform: rotate(3deg);
+}
+
+.welcome-eyebrow {
+  padding: 5px 12px;
+  border: 1px solid #ffffff80;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+}
+
+.welcome-sign h1 {
+  color: #fff;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.15;
   text-shadow: 0 2px 3px #344db2;
-  transform: rotate(4deg);
+}
+
+.welcome-sign h1 span {
+  color: #fff4a8;
+}
+
+.welcome-spark {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #fff;
+  font-size: 24px;
 }
 
 .hero-yellow,
 .hero-green {
   position: absolute;
+  z-index: 1;
   border: 4px solid #fff;
   border-radius: 50%;
   box-shadow: 0 0 0 4px currentColor;
@@ -199,6 +232,98 @@ nav a.on {
   font-size: clamp(18px, 2vw, 23px);
   font-weight: 700;
   line-height: 1.5;
+}
+
+.about-us {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 48px;
+  overflow: hidden;
+  margin: 4px 0 30px;
+  padding: 42px 48px;
+  border: 1px solid #e3ebdd;
+  border-radius: 28px;
+  background: linear-gradient(120deg, #f5f9f1, #fbf8e9);
+}
+
+.about-eyebrow {
+  margin-bottom: 8px;
+  color: var(--green-dark);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+}
+
+.about-copy h2 {
+  margin-bottom: 12px;
+  font-size: clamp(30px, 4vw, 40px);
+  line-height: 1.15;
+}
+
+.about-copy > p:last-child {
+  max-width: 590px;
+  color: #414b3f;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.about-values {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.about-values li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border: 1px solid #e8eee3;
+  border-radius: 16px;
+  background: #ffffffd9;
+}
+
+.value-mark {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  flex: 0 0 42px;
+  place-items: center;
+  border-radius: 13px;
+  color: #263522;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.value-mark.green {
+  background: var(--pale-green);
+}
+
+.value-mark.yellow {
+  background: #fff0a0;
+}
+
+.value-mark.blue {
+  background: var(--lavender);
+}
+
+.about-values li > span:last-child {
+  display: grid;
+  gap: 2px;
+}
+
+.about-values strong {
+  font-size: 16px;
+}
+
+.about-values small {
+  color: #4d4d4d;
+  font-size: 14px;
 }
 
 .benefits {
@@ -302,60 +427,121 @@ nav a.on {
   box-shadow: 0 4px 14px #00000012;
 }
 
-.faq {
+.reviews {
   padding: 10px 0 64px;
 }
 
-.faq-heading {
+.reviews-heading {
   padding-bottom: 22px;
   border-bottom: 5px solid var(--lavender);
 }
 
-.faq-heading h2 {
-  font-size: clamp(36px, 5vw, 48px);
+.reviews-heading h2 {
+  font-size: clamp(32px, 5vw, 44px);
   line-height: 1.1;
 }
 
-.faq-heading p {
-  margin-top: 6px;
+.reviews-heading > p:last-child {
+  margin-top: 8px;
+  color: #4d4d4d;
   font-weight: 600;
 }
 
-.faq-grid {
+.reviews-content {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 1fr;
   gap: 24px;
-  padding: 26px 0 0;
+  padding-top: 26px;
 }
 
-.faq-card {
-  min-height: 140px;
+.reviews-empty,
+.review-form {
+  min-height: 300px;
+  padding: 28px;
+  border: 1px solid #e3ebdd;
+  border-radius: 20px;
+  background: #f5f9f1;
+}
+
+.reviews-empty {
   display: grid;
-  align-content: space-evenly;
-  gap: 10px;
-  padding: 20px;
-  border-radius: 16px;
-  text-align: center;
+  align-content: center;
+  justify-items: start;
+  gap: 14px;
 }
 
-.faq-card:nth-child(3n + 1) {
-  background: var(--pale-green);
+.review-quote {
+  height: 48px;
+  color: var(--green-dark);
+  font-family: Georgia, serif;
+  font-size: 72px;
+  line-height: 1;
 }
 
-.faq-card:nth-child(3n + 2) {
-  background: #fff0a0;
+.reviews-empty h3,
+.review-form h3 {
+  font-size: 21px;
 }
 
-.faq-card:nth-child(3n) {
-  background: var(--lavender);
+.reviews-empty p,
+.review-form > p {
+  color: #4d4d4d;
 }
 
-.faq-card h3 {
-  font-size: 17px;
+.review-form {
+  background: #fff;
 }
 
-.faq-card p {
-  font-size: 15px;
+.review-form > p {
+  margin-top: 6px;
+  font-size: 14px;
+}
+
+.review-form fieldset {
+  display: grid;
+  gap: 9px;
+  margin: 18px 0 0;
+  padding: 0;
+  border: 0;
+}
+
+.review-form label {
+  color: #343c32;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.review-form input,
+.review-form select,
+.review-form textarea {
+  width: 100%;
+  min-height: 42px;
+  padding: 10px 12px;
+  border: 1px solid #dce5d8;
+  border-radius: 9px;
+  background: #f7f8f6;
+  color: #4d4d4d;
+  font: inherit;
+}
+
+.review-form textarea {
+  resize: vertical;
+}
+
+.review-form button {
+  min-height: 44px;
+  margin-top: 4px;
+  border: 0;
+  border-radius: 9px;
+  background: var(--green-dark);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+}
+
+.review-form :disabled {
+  cursor: not-allowed;
+  opacity: 0.72;
 }
 
 .site-footer {
@@ -420,7 +606,7 @@ nav a.on {
   }
 
   .hero-blue {
-    height: 76%;
+    height: 70%;
   }
 
   .hero-yellow {
@@ -433,6 +619,16 @@ nav a.on {
 
   .hero-copy .photo-placeholder {
     min-height: 220px;
+  }
+
+  .about-us {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 32px 26px;
+  }
+
+  .reviews-content {
+    grid-template-columns: 1fr;
   }
 
   .benefits {
@@ -469,13 +665,6 @@ nav a.on {
 
 }
 
-@media (max-width: 520px) {
-  .faq-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-  }
-}
-
 @media (max-width: 480px) {
   nav a {
     font-size: 12px;
@@ -497,7 +686,7 @@ nav a.on {
     align-items: start;
   }
 
-  .faq-grid {
+  .reviews-content {
     grid-template-columns: 1fr;
   }
 
