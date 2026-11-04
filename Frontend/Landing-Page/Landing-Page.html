@@ -20,7 +20,7 @@
       <nav aria-label="Navegación principal">
         <a href="../Landing-Page/Landing-Page.html" class="on">Inicio</a>
         <a href="../Meet-The-Team-Page/Meet-The-Team-Page.html">Equipo</a>
-        <a href="#">Actividades</a>
+        <a href="../Activites-Page/Activites.html">Actividades</a>
         <a href="../Mockup-Donations-Page/Mockup-Donations-Page.html">Donaciones</a>
         <a href="../Contact-Admission-Page/Contact-Admissions-Page.html">Contacto</a>
         <a href="../Mockup-Admin-Login/Mockup-Admin-Login.html">Administradores</a>
@@ -32,7 +32,11 @@
     <section class="hero" id="about" aria-labelledby="welcome-title">
       <div class="hero-art">
         <div class="hero-blue">
-          <h1 id="welcome-title">Bienvenidos<br />a Centro Vías</h1>
+          <div class="welcome-sign">
+            <span class="welcome-eyebrow">Un espacio para crecer</span>
+            <h1 id="welcome-title">¡Bienvenidos!<br /><span>a Centro Vías</span></h1>
+            <span class="welcome-spark" aria-hidden="true">✦</span>
+          </div>
         </div>
         <div class="hero-yellow" aria-hidden="true"></div>
         <div class="hero-green" aria-hidden="true"></div>
@@ -43,6 +47,19 @@
         </figure>
         <p>Un espacio donde los adultos con discapacidades pueden desarrollar una vida inclusiva, aprender y socializar.</p>
       </div>
+    </section>
+
+    <section class="about-us" id="nosotros" aria-labelledby="about-title">
+        <div class="about-copy">
+          <p class="about-eyebrow">Conoce nuestra comunidad</p>
+          <h2 id="about-title">Nosotros</h2>
+          <p>Centro Vías es un centro diurno sin fines de lucro en Ponce, Puerto Rico. Creamos un entorno inclusivo donde los adultos con discapacidades pueden desarrollar su independencia, participar en actividades grupales y conectar con su comunidad.</p>
+        </div>
+        <ul class="about-values" aria-label="Lo que promovemos">
+          <li><span class="value-mark green" aria-hidden="true">✓</span><span><strong>Inclusión</strong><small>Un lugar para compartir y pertenecer.</small></span></li>
+          <li><span class="value-mark yellow" aria-hidden="true">✦</span><span><strong>Independencia</strong><small>Oportunidades para crecer a tu ritmo.</small></span></li>
+          <li><span class="value-mark blue" aria-hidden="true">♡</span><span><strong>Conexión</strong><small>Relaciones que fortalecen la comunidad.</small></span></li>
+        </ul>
     </section>
 
     <section class="benefits" id="activities" aria-labelledby="benefits-title">
@@ -95,36 +112,29 @@
       </figure>
     </section>
 
-    <section class="faq" id="faq" aria-labelledby="faq-title">
-      <div class="faq-heading">
-        <h2 id="faq-title">Preguntas frecuentes</h2>
-        <p>Respuestas a tus dudas sobre Centro Vías</p>
+    <section class="reviews" id="reviews" aria-labelledby="reviews-title">
+      <div class="reviews-heading">
+        <p class="about-eyebrow">Tu voz es importante</p>
+        <h2 id="reviews-title">Reseñas y comentarios</h2>
+        <p>Pronto podrás compartir tu experiencia con Centro Vías.</p>
       </div>
-      <div class="faq-grid">
-        <article class="faq-card">
-          <h3>¿Qué es Centro Vías?</h3>
-          <p>Una comunidad que fomenta la conexión, el aprendizaje y la socialización.</p>
-        </article>
-        <article class="faq-card">
-          <h3>¿Quiénes pueden participar?</h3>
-          <p>Comunícate con el Centro para conocer más sobre sus programas.</p>
-        </article>
-        <article class="faq-card">
-          <h3>¿Qué actividades se ofrecen?</h3>
-          <p>Las actividades ofrecen oportunidades para aprender y compartir.</p>
-        </article>
-        <article class="faq-card">
-          <h3>¿Cómo puedo apoyar a Centro Vías?</h3>
-          <p>Visita nuestra página de donaciones para conocer cómo contribuir.</p>
-        </article>
-        <article class="faq-card" id="volunteer">
-          <h3>¿Puedo ofrecerme como voluntario?</h3>
-          <p>Comunícate con el equipo para preguntar sobre oportunidades de voluntariado.</p>
-        </article>
-        <article class="faq-card">
-          <h3>¿Cómo puedo comunicarme?</h3>
-          <p>Usa la información de contacto a continuación para comunicarte con el equipo.</p>
-        </article>
+      <div class="reviews-content">
+        <div class="reviews-empty">
+          <span class="review-quote" aria-hidden="true">“</span>
+          <h3>Un espacio para escuchar a nuestra comunidad</h3>
+          <p>Cuando esta función esté disponible, aquí podrás leer las experiencias que nuestra comunidad decida compartir.</p>
+        </div>
+        <form class="review-form" aria-labelledby="review-form-title">
+          <h3 id="review-form-title">Déjanos tu comentario</h3>
+          <p id="review-form-note">El formulario estará disponible próximamente.</p>
+          <fieldset disabled aria-describedby="review-form-note">
+            <label for="review-name">Tu nombre</label>
+            <input id="review-name" name="name" type="text" placeholder="Escribe tu nombre" />
+            <label for="review-comment">Comentario</label>
+            <textarea id="review-comment" name="comment" rows="4" placeholder="Comparte tu experiencia"></textarea>
+            <button type="submit">Enviar comentario</button>
+          </fieldset>
+        </form>
       </div>
     </section>
   </main>
