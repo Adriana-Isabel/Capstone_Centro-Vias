@@ -85,6 +85,25 @@ The purpose is to verify that the pages display correctly, navigation works as e
 - **Actual Result:** The organization has not yet provided the images intended for the website. Image display testing will be performed once the images are received and added.
 - **Status:** Not Tested
 
+### TC-007: Lighthouse Performance Audit
+
+**Objective:** Evaluate the website's performance, accessibility, best practices, and SEO using Google Lighthouse.
+**Testing Environment:**
+- Browser: Google Chrome
+- Testing Tool: Chrome DevTools – Lighthouse
+- Device Mode: Desktop
+- Audit Categories: Performance, Accessibility, Best Practices, SEO
+**Steps:**
+1. Open each website page in Google Chrome.
+2. Open Chrome DevTools and navigate to the Lighthouse tab.
+3. Select Desktop as the device mode.
+4. Run the Lighthouse audit with all four categories enabled.
+5. Record the scores for each category.
+6. Save the generated Lighthouse reports in the Testing/Performance/ folder.
+**Expected Result:** Lighthouse successfully generates an audit report for each page, providing scores for all four categories. The results should help identify potential areas for improvement in website performance, accessibility, best practices, and SEO.
+**Actual Result:** All six website pages were successfully evaluated using Lighthouse in Desktop mode. 
+**Status:** Pass
+
 ## 3. Test Execution Summary
 
 | Test Case | Description | Status |
