@@ -179,10 +179,20 @@ git clone <https://github.com/Adriana-Isabel/Capstone_Centro-Vias.git>
 
 ### Running the Project
 
+#### Option 1: Using the "Go Live" Button
 1. Open the project in Visual Studio Code.
-2. Navigate to Frontend/Landing-Page/Landing-Page.html.
-3. Make sure the Landing-Page.html file is open in the editor.
-4. Click the "Go Live" button, usually located in the bottom-right corner of VS Code.
+2. Navigate to `Frontend/Landing-Page/Landing-Page.html`.
+3. Make sure the `Landing-Page.html` file is open in the editor.
+4. Click the **"Go Live"** button, usually located in the bottom-right corner of VS Code.
+5. The website should open in your default web browser.
+
+#### Option 2: Using "Open with Live Server"
+1. Open the project in Visual Studio Code.
+2. Navigate to the `Frontend/` directory.
+3. Locate the HTML file you want to open. To start from the homepage, navigate to `Frontend/Landing-Page/Landing-Page.html`.
+4. Right-click the selected HTML file.
+5. Select **"Open with Live Server"** from the context menu.
+6. The selected page should open in your default web browser.
 
 ---
 
