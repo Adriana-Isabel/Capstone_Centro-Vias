@@ -114,4 +114,4 @@ The purpose is to verify that the pages display correctly, navigation works as e
 | TC-004 | CSS Styling | Pass |
 | TC-005 | Responsive Layout | Fail |
 | TC-006 | Image Display | Not Tested |
-| TC-007 | Lighthouse Performance Audit | Pass |
+| TC-007 | Lighthouse Performance Audit | Completed |
