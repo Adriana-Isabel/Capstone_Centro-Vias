@@ -25,7 +25,7 @@ The main goals of this project are to:
 * Explain the participant admission process and requirements.
 * Create a centralized way for prospective volunteers to learn how to get involved.
 * Provide information about ways to support the organization financially.
-* Improve communication between Centro Vías and its community.
+* Improve communication between Centro VIAS and its community.
 * Support the organization's long-term goal of expanding its participant and volunteer base.
 * Maintain the Center's identity as a **socialization and community program**, rather than a clinical or educational facility.
 * Follow accessibility and usability principles appropriate for the Center's audience.
@@ -85,7 +85,7 @@ The website is expected to include:
 
 * **Donations**
 
-  * Information about supporting Centro Vías
+  * Information about supporting Centro VIAS
   * Available donation methods
   * Fundraising information
 
@@ -238,7 +238,7 @@ Developed in collaboration with **Centro VIAS** in Ponce, Puerto Rico.
 
 Centro VIAS is a nonprofit day center in Ponce, Puerto Rico, dedicated to promoting an inclusive environment where adults with disabilities can develop independence, participate in group activities, and build social connections within their community.
 
-For more information about the organization, visit its official social media pages or contact Centro Vías directly.
+For more information about the organization, visit its official social media pages or contact Centro VIAS directly.
 
 ---
 

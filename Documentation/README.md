@@ -1,6 +1,6 @@
 # Documentation
 
-This directory contains the documentation produced throughout the Centro Vías Capstone Project.
+This directory contains the documentation produced throughout the Centro VIAS Capstone Project.
 
 The purpose of this directory is to keep project requirements, designs, decisions, and other supporting materials organized and accessible to the entire team.
 
@@ -14,7 +14,6 @@ Documentation may include:
 * User stories
 * Use cases
 * System architecture
-* Database design
 * UI/UX designs
 * Accessibility considerations
 * Meeting notes
@@ -32,7 +31,6 @@ documentation/
 ├── requirements/
 ├── design/
 ├── architecture/
-├── database/
 ├── ui-ux/
 ├── testing/
 ├── meetings/

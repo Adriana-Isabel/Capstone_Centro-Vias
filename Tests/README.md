@@ -1,6 +1,6 @@
 # Tests
 
-This directory contains tests used to verify the functionality, reliability, accessibility, and quality of the Centro Vías website.
+This directory contains tests used to verify the functionality, reliability, accessibility, and quality of the Centro VIAS website.
 
 ## 🎯 Purpose
 
@@ -28,7 +28,7 @@ Verifies that backend endpoints behave correctly.
 
 ### Database Testing
 
-Verifies database operations, relationships, constraints, and data integrity.
+Verifies relationships, constraints, and data integrity.
 
 ### Accessibility Testing
 

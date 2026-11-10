@@ -1,6 +1,6 @@
 # Frontend
 
-This directory contains the client-side code for the Centro Vías website.
+This directory contains the client-side code for the Centro VIAS website.
 
 The frontend is responsible for the website's user interface, navigation, content presentation, accessibility, responsiveness, and interaction with the backend services.
 
@@ -9,7 +9,7 @@ The frontend is responsible for the website's user interface, navigation, conten
 The frontend should:
 
 * Provide a clear and intuitive user experience.
-* Present information about Centro Vías and its activities.
+* Present information about Centro VIAS and its activities.
 * Provide access to participant admissions information.
 * Provide volunteer and donation information.
 * Provide contact and organization information.
@@ -42,12 +42,11 @@ frontend/
 Examples of planned frontend sections include:
 
 * Home
-* About Centro Vías
+* Meet the Team
 * Activities
-* Admissions
-* Volunteer
 * Donations
-* Contact
+* Contact & Admissions
+* Administrator 
 
 ## ♿ Accessibility
 
