@@ -14,7 +14,6 @@ Documentation may include:
 * User stories
 * Use cases
 * System architecture
-* Database design
 * UI/UX designs
 * Accessibility considerations
 * Meeting notes
@@ -32,7 +31,6 @@ documentation/
 ├── requirements/
 ├── design/
 ├── architecture/
-├── database/
 ├── ui-ux/
 ├── testing/
 ├── meetings/

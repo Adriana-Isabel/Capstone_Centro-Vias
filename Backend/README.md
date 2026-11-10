@@ -2,7 +2,7 @@
 
 This directory contains the server-side code and services for the Centro VIAS website.
 
-The backend is responsible for handling application logic, processing requests, communicating with the database, and providing secure services to the frontend.
+The backend is responsible for handling application logic, processing requests, and providing secure services to the frontend.
 
 ## 🎯 Responsibilities
 
@@ -12,7 +12,6 @@ The backend may be responsible for:
 * Managing participant-related inquiries.
 * Managing volunteer inquiries.
 * Handling donation-related functionality.
-* Communicating with the database.
 * Providing APIs for the frontend.
 * Validating user-submitted information.
 * Managing authentication and authorization if required.
@@ -61,7 +60,6 @@ The backend should follow appropriate security practices, including:
 * Secure handling of user-submitted data
 * Authentication and authorization where applicable
 * Protection against common web vulnerabilities
-* Secure database access
 * Appropriate error handling
 
 ## 🧪 Testing

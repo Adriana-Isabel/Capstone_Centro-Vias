@@ -42,12 +42,11 @@ frontend/
 Examples of planned frontend sections include:
 
 * Home
-* About Centro VIAS
+* Meet the Team
 * Activities
-* Admissions
-* Volunteer
 * Donations
-* Contact
+* Contact & Admissions
+* Administrator 
 
 ## ♿ Accessibility
 
