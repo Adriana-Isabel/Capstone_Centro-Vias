@@ -1,6 +1,6 @@
 # Documentation
 
-This directory contains the documentation produced throughout the Centro Vías Capstone Project.
+This directory contains the documentation produced throughout the Centro VIAS Capstone Project.
 
 The purpose of this directory is to keep project requirements, designs, decisions, and other supporting materials organized and accessible to the entire team.
 

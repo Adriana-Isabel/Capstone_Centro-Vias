@@ -1,6 +1,6 @@
 # Backend
 
-This directory contains the server-side code and services for the Centro Vías website.
+This directory contains the server-side code and services for the Centro VIAS website.
 
 The backend is responsible for handling application logic, processing requests, communicating with the database, and providing secure services to the frontend.
 

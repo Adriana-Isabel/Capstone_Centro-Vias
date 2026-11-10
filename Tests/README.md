@@ -1,6 +1,6 @@
 # Tests
 
-This directory contains tests used to verify the functionality, reliability, accessibility, and quality of the Centro Vías website.
+This directory contains tests used to verify the functionality, reliability, accessibility, and quality of the Centro VIAS website.
 
 ## 🎯 Purpose
 
