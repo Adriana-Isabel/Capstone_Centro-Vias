@@ -174,28 +174,15 @@ Before running the project, make sure you have the required development tools in
 Clone the repository:
 
 ```bash
-git clone <repository-url>
-```
-
-Navigate to the project directory:
-
-```bash
-cd centro-vias
-```
-
-Install the project dependencies:
-
-```bash
-# Add installation command here
+git clone <https://github.com/Adriana-Isabel/Capstone_Centro-Vias.git>
 ```
 
 ### Running the Project
 
-```bash
-# Add development/run command here
-```
-
-The application should then be available at the local development URL specified by the project configuration.
+1. Open the project in Visual Studio Code.
+2. Navigate to Frontend/Landing-Page/Landing-Page.html.
+3. Make sure the Landing-Page.html file is open in the editor.
+4. Click the "Go Live" button, usually located in the bottom-right corner of VS Code.
 
 ---
 
