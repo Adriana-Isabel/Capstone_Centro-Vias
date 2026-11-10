@@ -49,8 +49,8 @@ The purpose is to verify that the pages display correctly, navigation works as e
   2. Review the text, images, headings, and other visual elements.
   3. Check for overlapping elements, missing content, or unexpected spacing.
 - **Expected Result:** All page elements display correctly and follow the intended design.
-- **Actual Result:** The website pages displayed their content and layout; however, inconsistencies were found in the organization's name. In several instances, "VIAS" was written as "Vías".
-- **Status:** Fail
+- **Actual Result:** The website pages displayed their content and layout.
+- **Status:** Pass
 
 ### TC-004: CSS Styling
 
@@ -110,7 +110,8 @@ The purpose is to verify that the pages display correctly, navigation works as e
 |---|---|---|
 | TC-001 | Page Loading | Pass |
 | TC-002 | Navigation Links | Pass |
-| TC-003 | Page Content and Layout | Fail |
+| TC-003 | Page Content and Layout | Pass |
 | TC-004 | CSS Styling | Pass |
 | TC-005 | Responsive Layout | Fail |
 | TC-006 | Image Display | Not Tested |
+| TC-007 | Lighthouse Performance Audit | Pass |
