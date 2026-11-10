@@ -67,12 +67,15 @@ The website is expected to include:
   * Introduction to Centro VIAS
   * Mission and purpose
   * Highlights of activities and programs
-
-* **About Us**
-
   * Organization history
   * Mission and values
   * Information about the Center
+
+* **Meet the Team**
+
+  * Pictures of the employees and their role
+  * Pictures of the Board of Directors
+  * Pictures of the volunteers
 
 * **Activities**
 
@@ -80,31 +83,25 @@ The website is expected to include:
   * Recreational and socialization opportunities
   * Group excursions
 
-* **Admissions**
-
-  * Participant requirements
-  * Overview of the admission process
-  * Information about interviews and the probatory period
-  * Contact information for inquiries
-
-* **Volunteer**
-
-  * Information about volunteering
-  * Volunteer opportunities
-  * Interest/application form
-
 * **Donations**
 
   * Information about supporting Centro VIAS
   * Available donation methods
   * Fundraising information
 
-* **Contact**
+* **Contact & Admissions**
 
   * Organization contact information
   * Social media links
   * Location and other relevant information
-
+  * Participant requirements
+  * Overview of the admission process
+  * Information about interviews and the probatory period
+  * Contact information for inquiries
+  * Information about volunteering
+  * Volunteer opportunities
+  * Interest/application form
+    
 ---
 
 ## ♿ Accessibility
@@ -129,29 +126,21 @@ The goal is to make the website usable by as many members of the Centro VIAS com
 
 ## 🛠️ Technologies
 
-> **Note:** Update this section as the technology stack is finalized.
 
 ### Frontend
 
 * HTML
 * CSS
 * JavaScript
-* [Framework, if applicable]
 
 ### Backend
 
-* [Backend technology]
-* [Framework, if applicable]
-
-### Database
-
-* [Database technology]
+* .env file
 
 ### Development Tools
 
 * Git
 * GitHub
-* [Other tools]
 
 ---
 
@@ -163,7 +152,6 @@ The goal is to make the website usable by as many members of the Centro VIAS com
 centro-vias/
 ├── frontend/
 ├── backend/
-├── database/
 ├── documentation/
 ├── tests/
 └── README.md
@@ -218,7 +206,6 @@ Additional project documentation will be maintained in this repository, includin
 * Requirements
 * System design
 * UI/UX designs
-* Database design
 * Architecture documentation
 * Testing documentation
 * Project planning
@@ -240,7 +227,10 @@ Development will follow an iterative process in which requirements, designs, imp
 
 Developed in collaboration with **Centro VIAS** in Ponce, Puerto Rico.
 
-> Team members and individual responsibilities will be listed here.
+* Adriana I. Carrasquillo Cruz
+* Saúl E. Cabán Torres
+* Karina López Rodríguez
+
 
 ---
 
