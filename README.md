@@ -174,7 +174,7 @@ Before running the project, make sure you have the required development tools in
 Clone the repository:
 
 ```bash
-git clone <https://github.com/Adriana-Isabel/Capstone_Centro-Vias.git>
+git clone (https://github.com/Centro-VIAS/Capstone_Centro-Vias.git)
 ```
 
 ### Running the Project
