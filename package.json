@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "prepare:pages": "node scripts/prepare-pages.js",
+    "dev": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/start-local-pages.ps1"
+  },
+  "devDependencies": {
+    "wrangler": "^4.166.0"
+  }
+}

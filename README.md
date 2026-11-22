@@ -135,7 +135,8 @@ The goal is to make the website usable by as many members of the Centro VIAS com
 
 ### Backend
 
-* .env file
+* Cloudflare Pages Functions
+* Cloudflare Workers KV for server-validated sessions and login attempt protection
 
 ### Development Tools
 

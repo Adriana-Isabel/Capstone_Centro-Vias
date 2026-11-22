@@ -45,14 +45,18 @@
         <img src="../Images/logo.png" alt="Logotipo de Centro VIAS" />
         <h1 style="font-size: 28px">Inicio de sesión de administrador</h1>
         <p class="mut">Solo para personal autorizado de Centro VIAS.</p>
+        <form id="loginForm" autocomplete="on" style="display: contents">
         <div>
           <label
             for="u"
             style="font-weight: 700; display: block; margin-bottom: 6px"
-            >Correo electrónico o nombre de usuario</label
+            >Correo electrónico</label
           ><input
             id="u"
-            type="text"
+            name="email"
+            type="email"
+            autocomplete="username"
+            required
             placeholder="name@centrovias.org"
             style="
               width: 100%;
@@ -71,7 +75,10 @@
             >Contraseña</label
           ><input
             id="p"
+            name="password"
             type="password"
+            autocomplete="current-password"
+            required
             placeholder="Contraseña"
             style="
               width: 100%;
@@ -97,8 +104,12 @@
             >¿Olvidaste tu contraseña?</a
           >
         </div>
-        <a class="btn" href="#">Iniciar sesión</a>
+        <button class="btn" id="loginButton" type="submit" style="width: 100%">Iniciar sesión</button>
+        </form>
         <p
+          id="loginError"
+          role="alert"
+          hidden
           style="
             font-size: 14px;
             color: #9a3412;

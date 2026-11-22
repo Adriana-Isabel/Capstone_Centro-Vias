@@ -1,0 +1,9 @@
+
+.dev.vars
+.dev.vars.*
+.env
+.env.*
+node_modules/
+.wrangler/
+/functions/
+Frontend/wrangler.toml
