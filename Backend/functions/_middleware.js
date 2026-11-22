@@ -50,7 +50,7 @@ export async function onRequest(context) {
   if (isAdminPage) {
     response.headers.set('Cache-Control', 'no-store');
     response.headers.set('X-Content-Type-Options', 'nosniff');
-    response.headers.set('X-Robots-Tag', 'noindex, nofollow, noarchive');
+    response.headers.set('X-Robots-Tag', 'noindex, nofollow');
   }
   return response;
 }
