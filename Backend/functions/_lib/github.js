@@ -34,7 +34,7 @@ export async function getGitHubFile(config, path) {
   );
 }
 
-export async putGitHubFile(config, path, content, message, sha) {
+export async function putGitHubFile(config, path, content, message, sha) {
   return githubRequest(config, `/repos/${config.owner}/${config.repo}/contents/${path}`, {
     method: 'PUT',
     body: JSON.stringify({
@@ -46,7 +46,7 @@ export async putGitHubFile(config, path, content, message, sha) {
   });
 }
 
-export async deleteGitHubFile(config, path, sha, message) {
+export async function deleteGitHubFile(config, path, sha, message) {
   return githubRequest(config, `/repos/${config.owner}/${config.repo}/contents/${path}`, {
     method: 'DELETE',
     body: JSON.stringify({ message, sha, branch: config.branch }),
