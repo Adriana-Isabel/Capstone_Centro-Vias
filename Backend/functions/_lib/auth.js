@@ -80,7 +80,7 @@ export async function verifyPassword(password, encodedHash) {
   if (parts.length !== 4 || parts[0] !== 'pbkdf2_sha256') return false;
 
   const iterations = Number(parts[1]);
-  if (!Number.isSafeInteger(iterations) || iterations < 100000) return false;
+  if (!Number.isSafeInteger(iterations) || iterations !== 100000) return false;
 
   let salt;
   try {

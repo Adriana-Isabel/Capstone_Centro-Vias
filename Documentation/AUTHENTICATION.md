@@ -34,7 +34,7 @@ The public pages and their navigation are unchanged. The existing `Admin-Login` 
 Do not use plaintext password, `.env`, or `.dev.vars` files for production. The hash format is:
 
 ```text
-pbkdf2_sha256$310000$<BASE64_SALT>$<BASE64_DIGEST>
+pbkdf2_sha256$100000$<BASE64_SALT>$<BASE64_DIGEST>
 ```
 
 Use this local command from PowerShell to generate a fresh random-salted hash. Enter the actual password only at the prompt, not in a file:
@@ -43,7 +43,7 @@ Use this local command from PowerShell to generate a fresh random-salted hash. E
 $password = Read-Host "Password" -AsSecureString
 $bstr = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($password)
 $plain = [Runtime.InteropServices.Marshal]::PtrToStringBSTR($bstr)
-node -e "const c=require('crypto');const p=process.argv[1];const s=c.randomBytes(16);c.pbkdf2(p,s,310000,32,'sha256',(e,d)=>{if(e)throw e;console.log('pbkdf2_sha256$310000$'+s.toString('base64')+'$'+d.toString('base64'))})" $plain
+node -e "const c=require('crypto');const p=process.argv[1];const s=c.randomBytes(16);c.pbkdf2(p,s,100000,32,'sha256',(e,d)=>{if(e)throw e;console.log('pbkdf2_sha256$100000$'+s.toString('base64')+'$'+d.toString('base64'))})" $plain
 [Runtime.InteropServices.Marshal]::ZeroFreeBSTR($bstr)
 ```
 
@@ -68,7 +68,7 @@ from a gitignored `.dev.vars` file when present, or prompts for it securely. Cre
 `.dev.vars` in this format if you prefer not to enter the hash at every startup:
 
 ```text
-ADMIN_PASSWORD_HASH=pbkdf2_sha256$310000$<BASE64_SALT>$<BASE64_DIGEST>
+ADMIN_PASSWORD_HASH=pbkdf2_sha256$100000$<BASE64_SALT>$<BASE64_DIGEST>
 ```
 
 The local script writes `ADMIN_EMAIL` and `ADMIN_PASSWORD_HASH` to `.dev.vars` and
