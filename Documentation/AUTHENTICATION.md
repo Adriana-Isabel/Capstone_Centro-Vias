@@ -14,6 +14,11 @@ This implementation uses Cloudflare Pages Functions and a Workers KV namespace. 
 - `Backend/functions/api/logout.js`: deletes the server session and expires the cookie.
 - `Backend/functions/api/session.js`: confirms an active server session.
 - `scripts/prepare-pages.js`: stages backend source at the repository-root `functions` location required by Cloudflare Pages.
+- `Backend/functions/_lib/github.js`: authenticated GitHub API helpers for photo commits.
+- `Backend/functions/api/admin/photos/upload.js`: validates and commits uploaded photos.
+- `Backend/functions/api/admin/photos/remove.js`: removes an image and restores its placeholder state.
+- `Frontend/photo-loader.js`: applies the photo manifest to public page slots.
+- `Frontend/data/photos.json`: image-to-public-slot manifest updated by GitHub commits.
 - `Documentation/AUTHENTICATION.md`: Cloudflare configuration and test instructions.
 
 The public pages and their navigation are unchanged. The existing `Admin-Login` folder is retained rather than renamed.
@@ -50,6 +55,39 @@ node -e "const c=require('crypto');const p=process.argv[1];const s=c.randomBytes
 Copy only the printed `pbkdf2_sha256$...` value into the Cloudflare `ADMIN_PASSWORD_HASH` secret. Cloudflare encrypts secret values, and the repository does not receive the plaintext or hash.
 
 Redeploy after changing bindings or secrets. Preview and Production bindings/secrets must be configured separately.
+
+## GitHub photo management setup
+
+The dashboard photo uploader writes through the GitHub REST API. It requires:
+
+- Repository: `Centro-VIAS/Capstone_Centro-Vias`
+- Branch: `main`
+- A fine-grained personal access token with **Contents: Read and write** for that repository
+
+Create the token under GitHub **Settings > Developer settings > Personal access tokens > Fine-grained tokens**:
+
+1. Select `Centro-VIAS/Capstone_Centro-Vias`.
+2. Set repository permission **Contents** to **Read and write**.
+3. Create the token and copy it once.
+4. In Cloudflare Pages, open **Settings > Environment variables**.
+5. Add the following encrypted/secret variable:
+   - `GITHUB_TOKEN`: the fine-grained token
+6. Optionally add environment variables:
+   - `GITHUB_OWNER=Centro-VIAS`
+   - `GITHUB_REPO=Capstone_Centro-Vias`
+   - `GITHUB_BRANCH=main`
+
+Do not place the GitHub token in `.env`, `.dev.vars`, frontend files, or Git.
+
+## Photo testing
+
+1. Deploy the Cloudflare changes and configure `GITHUB_TOKEN`.
+2. Log in and open the protected dashboard.
+3. Select a page and image slot, enter alternative text, and upload a JPG, PNG, WebP, or GIF under 5 MB.
+4. Confirm GitHub receives commits for the image and `Frontend/data/photos.json`.
+5. Wait for Cloudflare Pages to complete its rebuild.
+6. Open the public page and confirm the picture replaces the placeholder.
+7. Return to the dashboard, select **Eliminar**, and confirm the placeholder returns after the rebuild.
 
 ## Session and attempt protection
 

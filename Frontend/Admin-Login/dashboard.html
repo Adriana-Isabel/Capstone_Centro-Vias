@@ -24,6 +24,42 @@
         <p style="margin-top: 16px">Usa los enlaces públicos del sitio para regresar a la página principal.</p>
         <a class="btn" href="../index.html" style="margin-top: 20px">Ir al sitio público</a>
       </section>
+      <section class="card" style="margin-top: 24px">
+        <h2>Administrar fotografías</h2>
+        <p class="mut" style="margin: 8px 0 20px">
+          Las imágenes se guardan en GitHub y pueden tardar unos minutos en aparecer después de cada despliegue.
+        </p>
+        <form id="photoUploadForm">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px">
+            <label>
+              Página y ubicación
+              <select id="photoSlot" name="slot" required style="width: 100%; height: 46px">
+                <option value="home-hero">Inicio — comunidad</option>
+                <option value="home-excursion">Inicio — excursión</option>
+                <option value="home-activity">Inicio — actividad</option>
+                <option value="activities-cooking">Actividades — cocina</option>
+                <option value="activities-puzzles">Actividades — juegos</option>
+                <option value="activities-recreation">Actividades — recreación</option>
+                <option value="activities-outings">Actividades — salida</option>
+                <option value="team-feature">Equipo — foto principal</option>
+                <option value="donations-feature">Donaciones — foto principal</option>
+                <option value="contact-feature">Contacto — foto principal</option>
+              </select>
+            </label>
+            <label>
+              Texto alternativo
+              <input id="photoAlt" name="alt" type="text" maxlength="160" style="width: 100%; height: 46px" />
+            </label>
+            <label>
+              Imagen
+              <input id="photoFile" name="file" type="file" accept="image/jpeg,image/png,image/webp,image/gif" required />
+            </label>
+          </div>
+          <button class="btn" id="photoUploadButton" type="submit" style="margin-top: 16px">Añadir o reemplazar</button>
+        </form>
+        <p id="photoStatus" role="status" class="mut" style="margin-top: 14px"></p>
+        <div id="photoList" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 20px"></div>
+      </section>
     </main>
     <footer>
       <div class="w" style="padding: 20px 24px">
