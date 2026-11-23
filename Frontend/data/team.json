@@ -5,8 +5,8 @@
       "nombre": "[Nombre completo]",
       "rol": "[Cargo]",
       "bio": "[Dos o tres oraciones sobre esta persona y lo que hace en Centro Vías.]",
-      "foto": "",
-      "alt": ""
+      "foto": "Images/photos/team-profile-1-1c582e2f-271e-410f-8532-3c5b67ada6f7.jpg",
+      "alt": "[Nombre completo]"
     },
     {
       "id": "team-profile-2",
