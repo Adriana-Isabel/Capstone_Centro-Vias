@@ -2,11 +2,11 @@
   "profiles": [
     {
       "id": "team-profile-1",
-      "nombre": "Saul",
+      "nombre": "[Nombre completo]",
       "rol": "[Cargo]",
       "bio": "[Dos o tres oraciones sobre esta persona y lo que hace en Centro Vías.]",
-      "foto": "",
-      "alt": ""
+      "foto": "Images/photos/team-profile-1-620b9497-ea3d-4064-afd6-99f5265ee642.png",
+      "alt": "[Nombre completo]"
     },
     {
       "id": "team-profile-2",
