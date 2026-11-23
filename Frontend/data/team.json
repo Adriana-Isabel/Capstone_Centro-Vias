@@ -1,0 +1,52 @@
+{
+  "profiles": [
+    {
+      "id": "team-profile-1",
+      "nombre": "[Nombre completo]",
+      "rol": "[Cargo]",
+      "bio": "[Dos o tres oraciones sobre esta persona y lo que hace en Centro Vías.]",
+      "foto": "Images/photos/team-profile-1-bbb49553-f677-4991-bcb4-d98b4f9938bf.jpg",
+      "alt": "[Nombre completo]"
+    },
+    {
+      "id": "team-profile-2",
+      "nombre": "[Nombre completo]",
+      "rol": "[Cargo]",
+      "bio": "[Dos o tres oraciones sobre esta persona y lo que hace en Centro Vías.]",
+      "foto": "",
+      "alt": ""
+    },
+    {
+      "id": "team-profile-3",
+      "nombre": "[Nombre completo]",
+      "rol": "[Cargo]",
+      "bio": "[Dos o tres oraciones sobre esta persona y lo que hace en Centro Vías.]",
+      "foto": "",
+      "alt": ""
+    },
+    {
+      "id": "team-profile-4",
+      "nombre": "[Nombre completo]",
+      "rol": "[Cargo]",
+      "bio": "[Dos o tres oraciones sobre esta persona y lo que hace en Centro Vías.]",
+      "foto": "",
+      "alt": ""
+    },
+    {
+      "id": "team-profile-5",
+      "nombre": "[Nombre completo]",
+      "rol": "[Cargo]",
+      "bio": "[Dos o tres oraciones sobre esta persona y lo que hace en Centro Vías.]",
+      "foto": "",
+      "alt": ""
+    },
+    {
+      "id": "team-profile-6",
+      "nombre": "[Nombre completo]",
+      "rol": "[Cargo]",
+      "bio": "[Dos o tres oraciones sobre esta persona y lo que hace en Centro Vías.]",
+      "foto": "",
+      "alt": ""
+    }
+  ]
+}
