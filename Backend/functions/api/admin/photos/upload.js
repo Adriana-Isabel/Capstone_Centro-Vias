@@ -54,7 +54,9 @@ export async function onRequestPost(context) {
 
   const slot = form.get('slot');
   const file = form.get('file');
-  if (!SLOT_IDS.has(slot) || !(file instanceof File)) {
+  const isTeamProfileSlot =
+    typeof slot === 'string' && /^team-profile-[a-zA-Z0-9-]+$/.test(slot);
+  if ((!SLOT_IDS.has(slot) && !isTeamProfileSlot) || !(file instanceof File)) {
     return json({ error: 'Slot o archivo no válido.' }, 400);
   }
   if (!MIME_EXTENSIONS[file.type]) {
@@ -94,12 +96,22 @@ export async function onRequestPost(context) {
   for (let i = 0; i < bytes.length; i += 0x8000) {
     binary += String.fromCharCode(...bytes.subarray(i, i + 0x8000));
   }
-  await putGitHubFile(
-    config,
-    path,
-    btoa(binary),
-    `Add photo for ${slot}`,
-  );
+  try {
+    await putGitHubFile(
+      config,
+      path,
+      btoa(binary),
+      `Add photo for ${slot}`,
+    );
+  } catch (_error) {
+    return json(
+      {
+        error:
+          'GitHub rechazó la escritura. Confirma que GITHUB_TOKEN tiene permiso Contents: Read and write.',
+      },
+      403,
+    );
+  }
 
   const updatedManifest = {
     ...manifest,

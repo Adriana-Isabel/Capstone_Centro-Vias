@@ -13,6 +13,7 @@ async function githubRequest(config, path, options = {}) {
     headers: {
       Accept: 'application/vnd.github+json',
       Authorization: `Bearer ${config.token}`,
+      'User-Agent': 'Centro-VIAS-Admin',
       'X-GitHub-Api-Version': '2022-11-28',
       'Content-Type': 'application/json',
       ...options.headers,

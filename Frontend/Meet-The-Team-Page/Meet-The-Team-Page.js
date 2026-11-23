@@ -1,72 +1,75 @@
-// Scripts de la página Conoce al Equipo.
-// Las tarjetas se generan a partir de la lista "equipo". Para agregar, cambiar
-// o quitar a una persona, solo se edita esta lista; el diseño no cambia.
-// "foto" es la ruta de la imagen (por ejemplo "fotos/nombre.jpg").
-// Si "foto" está vacía se muestra un espacio reservado.
-// "alt" describe la foto para lectores de pantalla.
- 
-const equipo = [
-  {
-    nombre: "[Nombre completo]",
-    rol: "[Cargo]",
-    bio: "[Dos o tres oraciones sobre esta persona y lo que hace en Centro Vías.]",
-    foto: "",
-    alt: ""
-  },
-  {
-    nombre: "[Nombre completo]",
-    rol: "[Cargo]",
-    bio: "[Dos o tres oraciones sobre esta persona y lo que hace en Centro Vías.]",
-    foto: "",
-    alt: ""
-  },
-  {
-    nombre: "[Nombre completo]",
-    rol: "[Cargo]",
-    bio: "[Dos o tres oraciones sobre esta persona y lo que hace en Centro Vías.]",
-    foto: "",
-    alt: ""
-  },
-  {
-    nombre: "[Nombre completo]",
-    rol: "[Cargo]",
-    bio: "[Dos o tres oraciones sobre esta persona y lo que hace en Centro Vías.]",
-    foto: "",
-    alt: ""
-  },
-  {
-    nombre: "[Nombre completo]",
-    rol: "[Cargo]",
-    bio: "[Dos o tres oraciones sobre esta persona y lo que hace en Centro Vías.]",
-    foto: "",
-    alt: ""
-  },
-  {
-    nombre: "[Nombre completo]",
-    rol: "[Cargo]",
-    bio: "[Dos o tres oraciones sobre esta persona y lo que hace en Centro Vías.]",
-    foto: "",
-    alt: ""
-  }
+const perfilesPredeterminados = [
+  { id: "team-profile-1", nombre: "[Nombre completo]", rol: "[Cargo]", bio: "[Dos o tres oraciones sobre esta persona y lo que hace en Centro Vías.]", foto: "", alt: "" },
+  { id: "team-profile-2", nombre: "[Nombre completo]", rol: "[Cargo]", bio: "[Dos o tres oraciones sobre esta persona y lo que hace en Centro Vías.]", foto: "", alt: "" },
+  { id: "team-profile-3", nombre: "[Nombre completo]", rol: "[Cargo]", bio: "[Dos o tres oraciones sobre esta persona y lo que hace en Centro Vías.]", foto: "", alt: "" },
+  { id: "team-profile-4", nombre: "[Nombre completo]", rol: "[Cargo]", bio: "[Dos o tres oraciones sobre esta persona y lo que hace en Centro Vías.]", foto: "", alt: "" },
+  { id: "team-profile-5", nombre: "[Nombre completo]", rol: "[Cargo]", bio: "[Dos o tres oraciones sobre esta persona y lo que hace en Centro Vías.]", foto: "", alt: "" },
+  { id: "team-profile-6", nombre: "[Nombre completo]", rol: "[Cargo]", bio: "[Dos o tres oraciones sobre esta persona y lo que hace en Centro Vías.]", foto: "", alt: "" },
 ];
- 
+
 const colores = ["t-g", "t-y", "t-b"];
 const icono =
   '<svg width="88" height="88" viewBox="0 0 24 24" fill="none" stroke="#2F6B2A" ' +
   'stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
   '<circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"></path></svg>';
- 
+
+let perfiles = perfilesPredeterminados.map((perfil) => ({ ...perfil }));
+let esAdministrador = false;
+
+async function cargarPerfiles() {
+  try {
+    const response = await fetch("/api/team", { cache: "no-store" });
+    if (response.ok) {
+      const data = await response.json();
+      if (Array.isArray(data.profiles) && data.profiles.length > 0) {
+        perfiles = data.profiles;
+      }
+    }
+  } catch (_error) {
+    // Keep the formatted placeholders if team data cannot be loaded.
+  }
+
+  try {
+    const session = await fetch("/api/session", { credentials: "same-origin" });
+    esAdministrador = session.ok;
+  } catch (_error) {
+    esAdministrador = false;
+  }
+  renderizarEquipo();
+}
+
+function guardarPerfiles(statusElement) {
+  if (statusElement) statusElement.textContent = "Guardando...";
+  return fetch("/api/admin/team/save", {
+    method: "POST",
+    credentials: "same-origin",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ profiles: perfiles }),
+  }).then(async (response) => {
+    const result = await response.json().catch(() => ({}));
+    if (!response.ok) throw new Error(result.error || "No se pudo guardar.");
+    if (statusElement) statusElement.textContent = "Guardado";
+  }).catch((error) => {
+    if (statusElement) statusElement.textContent = error.message;
+  });
+}
+
 function crearTarjeta(persona, indice) {
   const color = colores[indice % colores.length];
   const item = document.createElement("li");
   const tarjeta = document.createElement("article");
   tarjeta.className = "card member";
- 
+
   const foto = document.createElement("div");
   foto.className = "photo " + color;
+
   if (persona.foto) {
     const img = document.createElement("img");
-    img.src = persona.foto;
+    img.src = persona.foto.startsWith("Images/photos/")
+      ? "/api/photo?path=" + encodeURIComponent(persona.foto)
+      : persona.foto.startsWith("/")
+        ? persona.foto
+        : "/" + persona.foto;
     img.alt = persona.alt || "Foto de " + persona.nombre;
     img.loading = "lazy";
     foto.appendChild(img);
@@ -79,29 +82,161 @@ function crearTarjeta(persona, indice) {
     etiqueta.textContent = "Foto";
     foto.appendChild(etiqueta);
   }
- 
+
   const info = document.createElement("div");
   info.className = "info";
- 
+
   const nombre = document.createElement("h2");
   nombre.textContent = persona.nombre;
- 
+
   const rol = document.createElement("p");
   rol.className = "role " + color;
   rol.textContent = persona.rol;
- 
+
   const bio = document.createElement("p");
   bio.textContent = persona.bio;
- 
-  info.append(nombre, rol, bio);
+
+  if (esAdministrador) {
+    nombre.contentEditable = "true";
+    nombre.classList.add("editable-profile-field");
+    rol.contentEditable = "true";
+    rol.classList.add("editable-profile-field");
+    bio.contentEditable = "true";
+    bio.classList.add("editable-profile-field");
+
+    const status = document.createElement("span");
+    status.className = "profile-status";
+    status.setAttribute("role", "status");
+
+    const actions = document.createElement("div");
+    actions.className = "profile-actions";
+
+    const fileInput = document.createElement("input");
+    fileInput.type = "file";
+    fileInput.accept = "image/jpeg,image/png,image/webp,image/gif";
+    fileInput.hidden = true;
+
+    const photoButton = document.createElement("button");
+    photoButton.type = "button";
+    photoButton.className = "profile-action";
+    photoButton.textContent = persona.foto ? "Cambiar foto" : "Añadir foto";
+    photoButton.addEventListener("click", () => fileInput.click());
+
+    fileInput.addEventListener("change", async () => {
+      const file = fileInput.files?.[0];
+      if (!file) return;
+      persona.nombre = nombre.textContent.trim();
+      persona.rol = rol.textContent.trim();
+      persona.bio = bio.textContent.trim();
+      status.textContent = "Guardando foto...";
+      const slot = persona.id || "team-profile-" + (Date.now());
+      persona.id = slot;
+      const formData = new FormData();
+      formData.set("slot", slot);
+      formData.set("file", file);
+      formData.set("alt", persona.nombre);
+
+      const response = await fetch("/api/admin/photos/upload", {
+        method: "POST",
+        credentials: "same-origin",
+        body: formData,
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        status.textContent = result.error || "No se pudo guardar la foto.";
+        return;
+      }
+      persona.foto = result.path;
+      persona.alt = persona.nombre;
+      await guardarPerfiles(status);
+      renderizarEquipo();
+    });
+
+    const removePhotoButton = document.createElement("button");
+    removePhotoButton.type = "button";
+    removePhotoButton.className = "profile-action secondary";
+    removePhotoButton.textContent = "Eliminar foto";
+    removePhotoButton.hidden = !persona.foto;
+    removePhotoButton.addEventListener("click", async () => {
+      if (!persona.id) return;
+      persona.nombre = nombre.textContent.trim();
+      persona.rol = rol.textContent.trim();
+      persona.bio = bio.textContent.trim();
+      status.textContent = "Eliminando foto...";
+      await fetch("/api/admin/photos/remove", {
+        method: "POST",
+        credentials: "same-origin",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ slot: persona.id }),
+      });
+      persona.foto = "";
+      persona.alt = "";
+      await guardarPerfiles(status);
+      renderizarEquipo();
+    });
+
+    const saveButton = document.createElement("button");
+    saveButton.type = "button";
+    saveButton.className = "profile-action";
+    saveButton.textContent = "Guardar";
+    saveButton.addEventListener("click", () => {
+      persona.nombre = nombre.textContent.trim();
+      persona.rol = rol.textContent.trim();
+      persona.bio = bio.textContent.trim();
+      guardarPerfiles(status);
+    });
+
+    const removeProfileButton = document.createElement("button");
+    removeProfileButton.type = "button";
+    removeProfileButton.className = "profile-action danger";
+    removeProfileButton.textContent = "Eliminar perfil";
+    removeProfileButton.addEventListener("click", () => {
+      if (!window.confirm("¿Eliminar este perfil?")) return;
+      perfiles = perfiles.filter((profile) => profile !== persona);
+      guardarPerfiles(status).then(renderizarEquipo);
+    });
+
+    actions.append(fileInput, photoButton, removePhotoButton, saveButton, removeProfileButton);
+    info.append(status, actions);
+  }
+
+  info.prepend(nombre, rol, bio);
   tarjeta.append(foto, info);
   item.appendChild(tarjeta);
   return item;
 }
- 
-const lista = document.getElementById("equipo-lista");
-if (lista) {
-  equipo.forEach(function (persona, i) {
-    lista.appendChild(crearTarjeta(persona, i));
+
+function crearBotonAgregar() {
+  const item = document.createElement("li");
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "add-profile-card";
+  button.setAttribute("aria-label", "Añadir perfil");
+  button.innerHTML = '<span aria-hidden="true">+</span><strong>Añadir perfil</strong>';
+  button.addEventListener("click", () => {
+    const nuevo = {
+      id: "team-profile-" + Date.now(),
+      nombre: "[Nombre completo]",
+      rol: "[Cargo]",
+      bio: "[Dos o tres oraciones sobre esta persona.]",
+      foto: "",
+      alt: "",
+    };
+    perfiles.push(nuevo);
+    guardarPerfiles().then(renderizarEquipo);
   });
+  item.appendChild(button);
+  return item;
 }
+
+function renderizarEquipo() {
+  const lista = document.getElementById("equipo-lista");
+  if (!lista) return;
+  lista.replaceChildren();
+  perfiles.forEach((persona, indice) => {
+    lista.appendChild(crearTarjeta(persona, indice));
+  });
+  if (esAdministrador) lista.appendChild(crearBotonAgregar());
+}
+
+cargarPerfiles();
