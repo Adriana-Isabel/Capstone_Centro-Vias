@@ -1,14 +1,6 @@
 {
   "profiles": [
     {
-      "id": "team-profile-1",
-      "nombre": "",
-      "rol": "",
-      "bio": "",
-      "foto": "",
-      "alt": ""
-    },
-    {
       "id": "team-profile-2",
       "nombre": "[Nombre completo]",
       "rol": "[Cargo]",
