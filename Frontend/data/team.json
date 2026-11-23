@@ -2,9 +2,9 @@
   "profiles": [
     {
       "id": "team-profile-1",
-      "nombre": "[Nombre completo]",
-      "rol": "[Cargo]",
-      "bio": "[Dos o tres oraciones sobre esta persona y lo que hace en Centro Vías.]",
+      "nombre": "Saul",
+      "rol": "S.E",
+      "bio": "Estoy probando a ver",
       "foto": "Images/photos/team-profile-1-1c582e2f-271e-410f-8532-3c5b67ada6f7.jpg",
       "alt": "[Nombre completo]"
     },
