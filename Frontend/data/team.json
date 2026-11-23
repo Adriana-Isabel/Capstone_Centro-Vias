@@ -2,9 +2,9 @@
   "profiles": [
     {
       "id": "team-profile-1",
-      "nombre": "Saul",
-      "rol": "S.E",
-      "bio": "Estoy probando a ver",
+      "nombre": "",
+      "rol": "",
+      "bio": "",
       "foto": "",
       "alt": ""
     },
