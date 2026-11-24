@@ -26,6 +26,15 @@
       "foto": "",
       "alt": "",
       "categoria": "adjunta-directores"
+    },
+    {
+      "id": "team-profile-voluntario-1795558923228",
+      "nombre": "[Nombre completo]",
+      "rol": "[Cargo]",
+      "bio": "[Dos o tres oraciones sobre esta persona.]",
+      "foto": "",
+      "alt": "",
+      "categoria": "personal"
     }
   ]
 }
