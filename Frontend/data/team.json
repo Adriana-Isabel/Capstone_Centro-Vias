@@ -1,52 +1,5 @@
 {
-  "profiles": [
-    {
-      "id": "team-profile-5",
-      "nombre": "[Nombre completo]",
-      "rol": "[Cargo]",
-      "bio": "[Dos o tres oraciones sobre esta persona y lo que hace en Centro Vías.]",
-      "foto": "",
-      "alt": ""
-    },
-    {
-      "id": "team-profile-6",
-      "nombre": "[Nombre completo]",
-      "rol": "[Cargo]",
-      "bio": "[Dos o tres oraciones sobre esta persona y lo que hace en Centro Vías.]",
-      "foto": "",
-      "alt": ""
-    },
-    {
-      "id": "team-profile-1795470677558",
-      "nombre": "[Nombre completo]",
-      "rol": "[Cargo]",
-      "bio": "[Dos o tres oraciones sobre esta persona.]",
-      "foto": "",
-      "alt": ""
-    },
-    {
-      "id": "team-profile-1795471001302",
-      "nombre": "[Nombre completo]",
-      "rol": "[Cargo]",
-      "bio": "[Dos o tres oraciones sobre esta persona.]",
-      "foto": "",
-      "alt": ""
-    },
-    {
-      "id": "team-profile-1795471015286",
-      "nombre": "[Nombre completo]",
-      "rol": "[Cargo]",
-      "bio": "[Dos o tres oraciones sobre esta persona.]",
-      "foto": "",
-      "alt": ""
-    },
-    {
-      "id": "team-profile-1795471299283",
-      "nombre": "[Nombre completo]",
-      "rol": "[Cargo]",
-      "bio": "[Dos o tres oraciones sobre esta persona.]",
-      "foto": "",
-      "alt": ""
-    }
-  ]
+
+  "profiles": []
+
 }

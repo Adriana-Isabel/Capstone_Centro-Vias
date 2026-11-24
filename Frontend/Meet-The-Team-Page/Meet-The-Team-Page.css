@@ -394,6 +394,78 @@ footer a:focus-visible {
     color: var(--mut);
 }
 
+.editable-profile-field {
+    outline: 1px dashed #9db897;
+    outline-offset: 5px;
+    border-radius: 6px;
+}
+
+.editable-profile-field:focus {
+    outline: 2px solid var(--b);
+    background: #fff;
+}
+
+.profile-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.profile-action {
+    min-height: 36px;
+    padding: 7px 10px;
+    border: 1px solid var(--gd);
+    border-radius: 8px;
+    background: var(--gd);
+    color: #fff;
+    font: 700 13px "Segoe UI", Helvetica, Arial, sans-serif;
+    cursor: pointer;
+}
+
+.profile-action.secondary {
+    background: #fff;
+    color: var(--gd);
+}
+
+.profile-action.danger {
+    border-color: #9a3412;
+    background: #fff;
+    color: #9a3412;
+}
+
+.profile-status {
+    min-height: 18px;
+    color: var(--mut);
+    font-size: 13px;
+}
+
+.add-profile-card {
+    width: 100%;
+    min-height: 320px;
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    gap: 12px;
+    border: 2px dashed #9db897;
+    border-radius: 24px;
+    background: #f2f8f0;
+    color: var(--gd);
+    cursor: pointer;
+}
+
+.add-profile-card span {
+    width: 64px;
+    height: 64px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--gd);
+    color: #fff;
+    font-size: 42px;
+    line-height: 1;
+}
+
 .t-g {
     background: #E8F3E5;
 }

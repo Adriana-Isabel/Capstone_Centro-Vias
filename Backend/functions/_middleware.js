@@ -22,7 +22,10 @@ export async function onRequest(context) {
   const isAdminApi =
     path.startsWith('/api/') &&
     path !== '/api/login' &&
-    path !== '/api/logout';
+    path !== '/api/logout' &&
+    path !== '/api/team' &&
+    path !== '/api/photos' &&
+    path !== '/api/photo';
 
   const loginOrAsset =
     publicAdminPages.has(path) ||
