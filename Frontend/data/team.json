@@ -1,14 +1,6 @@
 {
   "profiles": [
     {
-      "id": "team-profile-1",
-      "nombre": "Saul E. Caban Torres",
-      "rol": "[S.E.]",
-      "bio": "Testing message saves",
-      "foto": "Images/photos/team-profile-1-0c18106d-c2f1-419a-ad3a-bc91d19e1724.jpg",
-      "alt": "Saul E. Caban Torres"
-    },
-    {
       "id": "team-profile-2",
       "nombre": "[Nombre completo]",
       "rol": "[Cargo]",
