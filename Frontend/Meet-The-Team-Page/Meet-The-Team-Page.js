@@ -15,9 +15,25 @@ const icono =
 
 let perfiles = perfilesPredeterminados.map((perfil) => ({
   ...perfil,
-  categoria: perfil.categoria || "personal",
+  categoria: "encargado",
 }));
 let esAdministrador = false;
+
+function normalizarCategoria(perfil) {
+  if (
+    perfil.categoria === "adjunta-directores" ||
+    String(perfil.id || "").startsWith("team-profile-adjunta-directores-")
+  ) {
+    return "adjunta-directores";
+  }
+  if (
+    perfil.categoria === "voluntario" ||
+    String(perfil.id || "").startsWith("team-profile-voluntario-")
+  ) {
+    return "voluntario";
+  }
+  return "encargado";
+}
 
 async function cargarPerfiles() {
   try {
@@ -27,10 +43,7 @@ async function cargarPerfiles() {
       if (Array.isArray(data.profiles) && data.profiles.length > 0) {
         perfiles = data.profiles.map((perfil) => ({
           ...perfil,
-          categoria: perfil.categoria === "adjunta-directores" ||
-            String(perfil.id || "").startsWith("team-profile-adjunta-directores-")
-            ? "adjunta-directores"
-            : "personal",
+          categoria: normalizarCategoria(perfil),
         }));
       }
     }
@@ -230,7 +243,9 @@ function crearBotonAgregar(categoria) {
   button.addEventListener("click", () => {
     const nuevo = {
       id: "team-profile-" +
-        (categoria === "adjunta-directores" ? "adjunta-directores-" : "") +
+        (categoria === "adjunta-directores" || categoria === "voluntario"
+          ? categoria + "-"
+          : "") +
         Date.now(),
       nombre: "[Nombre completo]",
       rol: "[Cargo]",
@@ -255,20 +270,29 @@ function crearBotonAgregar(categoria) {
 }
 
 function renderizarEquipo() {
-  const personal = perfiles.filter(
-    (persona) => (persona.categoria || "personal") === "personal",
+  const encargados = perfiles.filter(
+    (persona) => normalizarCategoria(persona) === "encargado",
+  );
+  const voluntarios = perfiles.filter(
+    (persona) => normalizarCategoria(persona) === "voluntario",
   );
   const adjuntas = perfiles.filter(
-    (persona) => persona.categoria === "adjunta-directores",
+    (persona) => normalizarCategoria(persona) === "adjunta-directores",
   );
 
-  const personalLista = document.getElementById("equipo-lista");
+  const encargadosLista = document.getElementById("equipo-lista");
+  const voluntariosLista = document.getElementById("voluntarios-lista");
   const adjuntasLista = document.getElementById("adjuntas-lista");
-  if (!personalLista || !adjuntasLista) return;
+  if (!encargadosLista || !voluntariosLista || !adjuntasLista) return;
 
-  personalLista.replaceChildren();
-  personal.forEach((persona, indice) => {
-    personalLista.appendChild(crearTarjeta(persona, indice));
+  encargadosLista.replaceChildren();
+  encargados.forEach((persona, indice) => {
+    encargadosLista.appendChild(crearTarjeta(persona, indice));
+  });
+
+  voluntariosLista.replaceChildren();
+  voluntarios.forEach((persona, indice) => {
+    voluntariosLista.appendChild(crearTarjeta(persona, indice));
   });
 
   adjuntasLista.replaceChildren();
@@ -277,7 +301,8 @@ function renderizarEquipo() {
   });
 
   if (esAdministrador) {
-    personalLista.appendChild(crearBotonAgregar("personal"));
+    encargadosLista.appendChild(crearBotonAgregar("encargado"));
+    voluntariosLista.appendChild(crearBotonAgregar("voluntario"));
     adjuntasLista.appendChild(crearBotonAgregar("adjunta-directores"));
   }
 }
