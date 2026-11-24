@@ -55,6 +55,14 @@
       "bio": "[Dos o tres oraciones sobre esta persona.]",
       "foto": "",
       "alt": ""
+    },
+    {
+      "id": "team-profile-1795555857466",
+      "nombre": "[Nombre completo]",
+      "rol": "[Cargo]",
+      "bio": "[Dos o tres oraciones sobre esta persona.]",
+      "foto": "",
+      "alt": ""
     }
   ]
 }
