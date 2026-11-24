@@ -41,7 +41,10 @@ export async function onRequestPost(context) {
     categoria: profile.categoria === 'adjunta-directores' ||
       String(profile.id || '').startsWith('team-profile-adjunta-directores-')
       ? 'adjunta-directores'
-      : 'personal',
+      : profile.categoria === 'voluntario' ||
+        String(profile.id || '').startsWith('team-profile-voluntario-')
+        ? 'voluntario'
+        : 'encargado',
   }));
 
   const config = githubConfig(env);

@@ -7,16 +7,16 @@
       "bio": "Testing message saves",
       "foto": "Images/photos/team-profile-1-0c18106d-c2f1-419a-ad3a-bc91d19e1724.jpg",
       "alt": "Saul E. Caban Torres",
-      "categoria": "personal"
+      "categoria": "encargado"
     },
     {
-      "id": "team-profile-2",
+      "id": "team-profile-6",
       "nombre": "[Nombre completo]",
       "rol": "[Cargo]",
       "bio": "[Dos o tres oraciones sobre esta persona y lo que hace en Centro Vías.]",
       "foto": "",
       "alt": "",
-      "categoria": "personal"
+      "categoria": "encargado"
     },
     {
       "id": "team-profile-3",
@@ -25,7 +25,7 @@
       "bio": "[Dos o tres oraciones sobre esta persona y lo que hace en Centro Vías.]",
       "foto": "",
       "alt": "",
-      "categoria": "personal"
+      "categoria": "encargado"
     },
     {
       "id": "team-profile-4",
@@ -34,7 +34,7 @@
       "bio": "[Dos o tres oraciones sobre esta persona y lo que hace en Centro Vías.]",
       "foto": "",
       "alt": "",
-      "categoria": "personal"
+      "categoria": "encargado"
     },
     {
       "id": "team-profile-5",
@@ -43,7 +43,7 @@
       "bio": "[Dos o tres oraciones sobre esta persona y lo que hace en Centro Vías.]",
       "foto": "",
       "alt": "",
-      "categoria": "personal"
+      "categoria": "encargado"
     },
     {
       "id": "team-profile-6",
@@ -51,7 +51,8 @@
       "rol": "[Cargo]",
       "bio": "[Dos o tres oraciones sobre esta persona y lo que hace en Centro Vías.]",
       "foto": "",
-      "alt": ""
+      "alt": "",
+      "categoria": "encargado"
     },
     {
       "id": "team-profile-1795555767319",
@@ -59,16 +60,17 @@
       "rol": "[Cargo]",
       "bio": "[Dos o tres oraciones sobre esta persona.]",
       "foto": "",
-      "alt": ""
+      "alt": "",
+      "categoria": "encargado"
     },
     {
-      "id": "team-profile-adjunta-directores-1795555999786",
+      "id": "team-profile-voluntario-1795558923228",
       "nombre": "[Nombre completo]",
       "rol": "[Cargo]",
       "bio": "[Dos o tres oraciones sobre esta persona.]",
       "foto": "",
       "alt": "",
-      "categoria": "personal"
+      "categoria": "adjunta-directores"
     }
   ]
 }
