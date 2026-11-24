@@ -490,7 +490,7 @@ footer a:focus-visible {
 
 @media (max-width: 900px) {
     .team-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .hero {
@@ -521,5 +521,55 @@ footer a:focus-visible {
 @media (min-width: 901px) and (max-width: 1100px) {
     .team-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+header {
+    background: #fff;
+    border-bottom: 4px solid;
+    border-image: linear-gradient(90deg, #3ab0f5, #5878f4, #5b9654, #e7c927, #e8a71e) 1;
+}
+
+.hd {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 24px;
+}
+
+.hd img {
+    height: 68px;
+}
+
+nav a {
+    color: #171717;
+}
+
+nav a:hover {
+    background: #f6faf4;
+}
+
+nav a.on {
+    background: #397c43;
+}
+
+nav a:focus-visible {
+    outline: 3px solid #263fbb;
+    outline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+    nav {
+        justify-content: center;
+    }
+
+    nav a {
+        padding: 7px 9px;
+        font-size: 13px;
     }
 }

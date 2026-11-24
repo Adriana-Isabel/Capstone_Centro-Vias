@@ -777,3 +777,69 @@ footer a:focus-visible,
         font-size: 30px;
     }
 }
+
+@media (min-width: 641px) and (max-width: 900px) {
+    .paths {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .path,
+    .panel-body,
+    .formcard {
+        padding: 20px;
+    }
+
+    .panel-head h2 {
+        font-size: 26px;
+    }
+
+    .social a {
+        padding: 0 14px;
+    }
+}
+
+header {
+    background: #fff;
+    border-bottom: 4px solid;
+    border-image: linear-gradient(90deg, #3ab0f5, #5878f4, #5b9654, #e7c927, #e8a71e) 1;
+}
+
+.hd {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 24px;
+}
+
+.hd img {
+    height: 68px;
+}
+
+nav a {
+    color: #171717;
+}
+
+nav a:hover {
+    background: #f6faf4;
+}
+
+nav a.on {
+    background: #397c43;
+}
+
+nav a:focus-visible {
+    outline: 3px solid #263fbb;
+    outline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+    nav {
+        justify-content: center;
+    }
+
+    nav a {
+        padding: 7px 9px;
+        font-size: 13px;
+    }
+}

@@ -720,11 +720,61 @@ nav a.on {
   }
 }
 
+.hd {
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 0 auto;
+  padding: 10px 24px;
+}
+
+.hd img {
+  display: block;
+  height: 68px;
+}
+
+nav a {
+  color: var(--ink);
+}
+
+nav a:hover {
+  background: #f6faf4;
+}
+
+nav a.on {
+  background: var(--green-dark);
+  color: #fff;
+}
+
+nav a:focus-visible {
+  outline: 3px solid #263fbb;
+  outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+  .hd {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 640px) {
+  nav {
+    justify-content: center;
+  }
+
+  nav a {
+    padding: 7px 9px;
+    font-size: 13px;
+  }
+}
+
     </style>
   </head>
   <body>
   <header>
-    <div class="hd" style="max-width: 1200px; margin: auto">
+    <div class="hd">
       <img src="Images/cropped-logo.png" alt="Logotipo de Centro VIAS" />
       <nav aria-label="Navegación principal">
         <a href="index.html" class="on">Inicio</a>
