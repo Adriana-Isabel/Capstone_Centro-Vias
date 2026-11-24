@@ -330,6 +330,16 @@ footer a:focus-visible {
     padding: 0;
 }
 
+.team-section {
+    margin-top: 32px;
+}
+
+.team-section h2 {
+    margin: 0 0 18px;
+    color: var(--ink);
+    font-size: 32px;
+}
+
 .member {
     display: flex;
     flex-direction: column;

@@ -38,6 +38,10 @@ export async function onRequestPost(context) {
     bio: String(profile.bio || '').slice(0, 1000),
     foto: String(profile.foto || '').slice(0, 500),
     alt: String(profile.alt || '').slice(0, 160),
+    categoria: profile.categoria === 'adjunta-directores' ||
+      String(profile.id || '').startsWith('team-profile-adjunta-directores-')
+      ? 'adjunta-directores'
+      : 'personal',
   }));
 
   const config = githubConfig(env);

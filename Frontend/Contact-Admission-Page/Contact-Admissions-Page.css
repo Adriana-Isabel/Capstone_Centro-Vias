@@ -678,21 +678,18 @@ footer a:focus-visible,
     position: relative;
     aspect-ratio: 4 / 3;
     border-radius: 20px;
-    background: #FBF6D6;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    overflow: hidden;
 }
 
-.map .tag {
-    position: absolute;
-    left: 12px;
-    bottom: 12px;
-    background: #fff;
-    border-radius: 999px;
-    padding: 4px 12px;
-    font-size: 13px;
-    color: var(--mut);
+.map iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.map-link {
+    margin: 8px 0 20px;
 }
 
 .social {

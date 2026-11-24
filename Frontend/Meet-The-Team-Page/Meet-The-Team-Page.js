@@ -13,7 +13,10 @@ const icono =
   'stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
   '<circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"></path></svg>';
 
-let perfiles = perfilesPredeterminados.map((perfil) => ({ ...perfil }));
+let perfiles = perfilesPredeterminados.map((perfil) => ({
+  ...perfil,
+  categoria: perfil.categoria || "personal",
+}));
 let esAdministrador = false;
 
 async function cargarPerfiles() {
@@ -22,7 +25,13 @@ async function cargarPerfiles() {
     if (response.ok) {
       const data = await response.json();
       if (Array.isArray(data.profiles) && data.profiles.length > 0) {
-        perfiles = data.profiles;
+        perfiles = data.profiles.map((perfil) => ({
+          ...perfil,
+          categoria: perfil.categoria === "adjunta-directores" ||
+            String(perfil.id || "").startsWith("team-profile-adjunta-directores-")
+            ? "adjunta-directores"
+            : "personal",
+        }));
       }
     }
   } catch (_error) {
@@ -49,8 +58,10 @@ function guardarPerfiles(statusElement) {
     const result = await response.json().catch(() => ({}));
     if (!response.ok) throw new Error(result.error || "No se pudo guardar.");
     if (statusElement) statusElement.textContent = "Guardado";
+    return true;
   }).catch((error) => {
     if (statusElement) statusElement.textContent = error.message;
+    return false;
   });
 }
 
@@ -183,7 +194,7 @@ function crearTarjeta(persona, indice) {
       persona.nombre = nombre.textContent.trim();
       persona.rol = rol.textContent.trim();
       persona.bio = bio.textContent.trim();
-      guardarPerfiles(status);
+      guardarPerfiles(status).then(renderizarEquipo);
     });
 
     const removeProfileButton = document.createElement("button");
@@ -206,37 +217,69 @@ function crearTarjeta(persona, indice) {
   return item;
 }
 
-function crearBotonAgregar() {
+function crearBotonAgregar(categoria) {
   const item = document.createElement("li");
   const button = document.createElement("button");
   button.type = "button";
   button.className = "add-profile-card";
   button.setAttribute("aria-label", "Añadir perfil");
   button.innerHTML = '<span aria-hidden="true">+</span><strong>Añadir perfil</strong>';
+  const status = document.createElement("span");
+  status.className = "profile-status";
+  status.setAttribute("role", "status");
   button.addEventListener("click", () => {
     const nuevo = {
-      id: "team-profile-" + Date.now(),
+      id: "team-profile-" +
+        (categoria === "adjunta-directores" ? "adjunta-directores-" : "") +
+        Date.now(),
       nombre: "[Nombre completo]",
       rol: "[Cargo]",
       bio: "[Dos o tres oraciones sobre esta persona.]",
       foto: "",
       alt: "",
+      categoria,
     };
     perfiles.push(nuevo);
-    guardarPerfiles().then(renderizarEquipo);
+    button.disabled = true;
+    guardarPerfiles(status).then((saved) => {
+      if (saved) {
+        renderizarEquipo();
+      } else {
+        perfiles = perfiles.filter((profile) => profile !== nuevo);
+        button.disabled = false;
+      }
+    });
   });
-  item.appendChild(button);
+  item.append(button, status);
   return item;
 }
 
 function renderizarEquipo() {
-  const lista = document.getElementById("equipo-lista");
-  if (!lista) return;
-  lista.replaceChildren();
-  perfiles.forEach((persona, indice) => {
-    lista.appendChild(crearTarjeta(persona, indice));
+  const personal = perfiles.filter(
+    (persona) => (persona.categoria || "personal") === "personal",
+  );
+  const adjuntas = perfiles.filter(
+    (persona) => persona.categoria === "adjunta-directores",
+  );
+
+  const personalLista = document.getElementById("equipo-lista");
+  const adjuntasLista = document.getElementById("adjuntas-lista");
+  if (!personalLista || !adjuntasLista) return;
+
+  personalLista.replaceChildren();
+  personal.forEach((persona, indice) => {
+    personalLista.appendChild(crearTarjeta(persona, indice));
   });
-  if (esAdministrador) lista.appendChild(crearBotonAgregar());
+
+  adjuntasLista.replaceChildren();
+  adjuntas.forEach((persona, indice) => {
+    adjuntasLista.appendChild(crearTarjeta(persona, indice));
+  });
+
+  if (esAdministrador) {
+    personalLista.appendChild(crearBotonAgregar("personal"));
+    adjuntasLista.appendChild(crearBotonAgregar("adjunta-directores"));
+  }
 }
 
 cargarPerfiles();
