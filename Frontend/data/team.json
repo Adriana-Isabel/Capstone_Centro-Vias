@@ -10,15 +10,6 @@
       "categoria": "personal"
     },
     {
-      "id": "team-profile-2",
-      "nombre": "[Nombre completo]",
-      "rol": "[Cargo]",
-      "bio": "[Dos o tres oraciones sobre esta persona y lo que hace en Centro Vías.]",
-      "foto": "",
-      "alt": "",
-      "categoria": "personal"
-    },
-    {
       "id": "team-profile-3",
       "nombre": "[Nombre completo]",
       "rol": "[Cargo]",
@@ -51,7 +42,8 @@
       "rol": "[Cargo]",
       "bio": "[Dos o tres oraciones sobre esta persona y lo que hace en Centro Vías.]",
       "foto": "",
-      "alt": ""
+      "alt": "",
+      "categoria": "personal"
     },
     {
       "id": "team-profile-1795555767319",
@@ -59,7 +51,8 @@
       "rol": "[Cargo]",
       "bio": "[Dos o tres oraciones sobre esta persona.]",
       "foto": "",
-      "alt": ""
+      "alt": "",
+      "categoria": "personal"
     },
     {
       "id": "team-profile-adjunta-directores-1795555999786",
@@ -68,7 +61,7 @@
       "bio": "[Dos o tres oraciones sobre esta persona.]",
       "foto": "",
       "alt": "",
-      "categoria": "personal"
+      "categoria": "adjunta-directores"
     }
   ]
 }
