@@ -137,6 +137,7 @@ The goal is to make the website usable by as many members of the Centro VIAS com
 
 * Cloudflare Pages Functions
 * Cloudflare Workers KV for server-validated sessions and login attempt protection
+* Cloudflare D1 for public comments, approval status, and submission limits
 
 ### Development Tools
 

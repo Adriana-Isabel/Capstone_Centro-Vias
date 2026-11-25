@@ -53,13 +53,20 @@ Set-Content -Path $devVarsPath -Value $devVars -Encoding ASCII
 $frontendDevVarsPath = Join-Path $PSScriptRoot "..\Frontend\.dev.vars"
 Set-Content -Path $frontendDevVarsPath -Value $devVars -Encoding ASCII
 $frontendWranglerPath = Join-Path $PSScriptRoot "..\Frontend\wrangler.toml"
+$localStatePath = Join-Path $PSScriptRoot "..\.wrangler\state"
 $escapedPasswordHash = $AdminPasswordHash.Replace('\', '\\').Replace('"', '\"')
 $wranglerConfig = @(
   'compatibility_date = "2026-11-19"',
   '',
   '[vars]',
   "ADMIN_EMAIL = `"$AdminEmail`"",
-  "ADMIN_PASSWORD_HASH = `"$escapedPasswordHash`""
+  "ADMIN_PASSWORD_HASH = `"$escapedPasswordHash`"",
+  '',
+  '[[d1_databases]]',
+  'binding = "COMMENTS_DB"',
+  'database_name = "centro-vias-comments"',
+  'database_id = "00000000-0000-0000-0000-000000000001"',
+  'migrations_dir = "../Backend/migrations"'
 )
 Set-Content -Path $frontendWranglerPath -Value $wranglerConfig -Encoding ASCII
 
@@ -68,11 +75,25 @@ if ($LASTEXITCODE -ne 0) {
   exit $LASTEXITCODE
 }
 
+$migrationArguments = @(
+  'd1', 'migrations', 'apply', 'centro-vias-comments',
+  '--local',
+  '--force',
+  '--persist-to', $localStatePath,
+  '--config', 'Frontend/wrangler.toml'
+)
+& npx wrangler @migrationArguments
+if ($LASTEXITCODE -ne 0) {
+  exit $LASTEXITCODE
+}
+
 $wranglerArguments = @(
   'pages', 'dev', 'Frontend',
   '--ip', '127.0.0.1',
   '--port', '8788',
+  '--persist-to', $localStatePath,
   '--kv', 'SESSION_KV',
+  '--d1', 'COMMENTS_DB=00000000-0000-0000-0000-000000000001',
   '--binding', "ADMIN_EMAIL=$AdminEmail",
   '--binding', "ADMIN_PASSWORD_HASH=$AdminPasswordHash"
 )

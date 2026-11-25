@@ -222,3 +222,57 @@ footer a {
     grid-template-columns: 1fr !important;
   }
 }
+
+.moderation {
+  display: grid;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.review-queue {
+  display: grid;
+  gap: 14px;
+}
+
+.pending-review {
+  display: grid;
+  gap: 12px;
+  padding: 18px;
+  border: 1px solid var(--ln);
+  border-radius: 14px;
+  background: #fff;
+}
+
+.pending-review-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 12px;
+  color: var(--mut);
+  font-size: 14px;
+}
+
+.pending-review-message {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.pending-review-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pending-review-actions .btn {
+  cursor: pointer;
+}
+
+.pending-review-actions .btn:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.moderation-error {
+  color: #9a3412;
+  font-weight: 600;
+}

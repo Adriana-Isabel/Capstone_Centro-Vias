@@ -56,6 +56,24 @@ Copy only the printed `pbkdf2_sha256$...` value into the Cloudflare `ADMIN_PASSW
 
 Redeploy after changing bindings or secrets. Preview and Production bindings/secrets must be configured separately.
 
+## Public comment moderation setup
+
+The public comment form requires a Cloudflare D1 database:
+
+1. Create a D1 database, for example `centro-vias-comments`.
+2. In the Pages project under **Settings > Bindings**, add a D1 database binding named `COMMENTS_DB` for each environment you deploy (Production and Preview) and select the corresponding database.
+3. Before deploying, open each D1 database's SQL console and apply `Backend/migrations/0001_create_reviews.sql`.
+4. Deploy the site and Pages Functions.
+
+Comments remain pending until an authenticated administrator approves or rejects
+them on the admin dashboard. Only approved comments are shown publicly. Every
+submission, including a rejected one, counts toward the limits: five submissions
+in any rolling 24-hour period and a five-minute wait between submissions from the
+same IP address. Limits are shared by people using the same IP address. The IP is
+HMAC-hashed with the configured admin password hash before storage; the raw IP
+is not stored. Use `npm run dev` for local development; a static file server
+cannot run the Pages Functions or local D1 database.
+
 ## GitHub photo management setup
 
 The dashboard photo uploader writes through the GitHub REST API. It requires:

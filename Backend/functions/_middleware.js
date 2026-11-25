@@ -25,7 +25,8 @@ export async function onRequest(context) {
     path !== '/api/logout' &&
     path !== '/api/team' &&
     path !== '/api/photos' &&
-    path !== '/api/photo';
+    path !== '/api/photo' &&
+    path !== '/api/reviews';
 
   const loginOrAsset =
     publicAdminPages.has(path) ||

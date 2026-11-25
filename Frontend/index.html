@@ -558,6 +558,53 @@ nav a.on {
   opacity: 0.72;
 }
 
+.approved-reviews {
+  min-height: 300px;
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  padding: 20px;
+  border: 1px solid #e3ebdd;
+  border-radius: 20px;
+  background: #f5f9f1;
+}
+
+.approved-reviews[hidden] {
+  display: none;
+}
+
+.approved-review {
+  padding: 18px;
+  border: 1px solid #e3ebdd;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.approved-review p {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.approved-review-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 12px;
+  margin-bottom: 8px;
+  color: #4d4d4d;
+  font-size: 13px;
+}
+
+.review-form-status:empty {
+  display: none;
+}
+
+.review-form-status {
+  margin-top: 10px;
+  color: var(--green-dark);
+  font-weight: 600;
+}
+
 .site-footer {
   border-top: 8px solid var(--green);
 }
@@ -877,20 +924,22 @@ nav a:focus-visible {
         <p>Pronto podrás compartir tu experiencia con Centro VIAS.</p>
       </div>
       <div class="reviews-content">
-        <div class="reviews-empty">
+        <div class="reviews-empty" id="reviews-empty">
           <span class="review-quote" aria-hidden="true">“</span>
           <h3>Un espacio para escuchar a nuestra comunidad</h3>
-          <p>Cuando esta función esté disponible, aquí podrás leer las experiencias que nuestra comunidad decida compartir.</p>
+          <p id="reviews-empty-message">Los comentarios aparecerán aquí después de que nuestro equipo los apruebe.</p>
         </div>
-        <form class="review-form" aria-labelledby="review-form-title">
+        <div class="approved-reviews" id="approved-reviews" aria-label="Comentarios aprobados" hidden></div>
+        <form class="review-form" id="review-form" aria-labelledby="review-form-title">
           <h3 id="review-form-title">Déjanos tu comentario</h3>
-          <p id="review-form-note">El formulario estará disponible próximamente.</p>
-          <fieldset disabled aria-describedby="review-form-note">
+          <p id="review-form-note">Los comentarios se envían al equipo para revisión y solo se publican si se aprueban. Se permiten hasta cinco envíos en 24 horas, con cinco minutos entre cada uno, desde la misma conexión. Los comentarios rechazados también cuentan.</p>
+          <p class="review-form-status" id="review-form-status" role="status" aria-live="polite"></p>
+          <fieldset aria-describedby="review-form-note review-form-status">
             <label for="review-name">Tu nombre</label>
-            <input id="review-name" name="name" type="text" placeholder="Escribe tu nombre" />
+            <input id="review-name" name="authorName" type="text" maxlength="80" autocomplete="name" required placeholder="Escribe tu nombre" />
             <label for="review-comment">Comentario</label>
-            <textarea id="review-comment" name="comment" rows="4" placeholder="Comparte tu experiencia"></textarea>
-            <button type="submit">Enviar comentario</button>
+            <textarea id="review-comment" name="message" rows="4" maxlength="2000" required placeholder="Comparte tu experiencia"></textarea>
+            <button id="review-submit" type="submit">Enviar para revisión</button>
           </fieldset>
         </form>
       </div>
@@ -925,5 +974,6 @@ nav a:focus-visible {
     <div class="footer-bottom">© Centro VIAS</div>
   </footer>
 <script src="photo-loader.js"></script>
+<script src="reviews.js"></script>
 </body>
 </html>
