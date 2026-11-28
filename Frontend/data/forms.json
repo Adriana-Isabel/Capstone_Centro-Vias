@@ -1,0 +1,19 @@
+
+{
+  "forms": [
+    {
+      "id": "solicitud",
+      "name": "Formulario del participante y su encargado",
+      "description": "Completa el formulario para iniciar el proceso de admisión en Centro VIAS.",
+      "url": "",
+      "updatedAt": null
+    },
+    {
+      "id": "voluntariado",
+      "name": "Formulario de interés para voluntarios",
+      "description": "Comparte tu interés en colaborar con Centro VIAS.",
+      "url": "",
+      "updatedAt": null
+    }
+  ]
+}

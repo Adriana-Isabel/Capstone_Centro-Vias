@@ -1,26 +1,73 @@
 // Scripts de la página Contacto y Admisiones.
-// Aquí se pegan los enlaces de los formularios de Google. Mientras estén
-// vacíos, los botones no llevan a ningún lugar.
+// Los enlaces oficiales serán proporcionados por Centro VIAS.
 
 const formularios = {
-  solicitud: "", // Formulario del participante y su encargado
-  voluntariado: "" // Formulario de interés para voluntarios
+  solicitud: {
+    url: "",
+    etiqueta: "Abrir el formulario de solicitud"
+  },
+  voluntariado: {
+    url: "",
+    etiqueta: "Abrir el formulario de voluntariado"
+  }
 };
 
-document.querySelectorAll("[data-formulario]").forEach(function (boton) {
-  const url = formularios[boton.dataset.formulario];
-  if (url) {
-    boton.href = url;
-    boton.target = "_blank";
-    boton.rel = "noopener noreferrer";
+function configurarFormularios() {
+  document.querySelectorAll("[data-formulario]").forEach((boton) => {
+    const tipo = boton.dataset.formulario;
+    const formulario = formularios[tipo];
+
+    const estado = document.querySelector(
+      `[data-form-status="${tipo}"]`
+    );
+
+    const etiqueta = boton.querySelector("[data-form-label]");
     const aviso = boton.querySelector("[data-nueva]");
-    if (aviso) {
-      aviso.textContent = " (se abre en una pestaña nueva)";
+
+    let urlValida = false;
+
+    try {
+      urlValida = new URL(formulario?.url).protocol === "https:";
+    } catch {
+      urlValida = false;
     }
-  } else {
-    boton.setAttribute("aria-disabled", "true");
-    boton.addEventListener("click", function (evento) {
-      evento.preventDefault();
-    });
-  }
-});
+
+    if (urlValida) {
+      boton.href = formulario.url;
+      boton.target = "_blank";
+      boton.rel = "noopener noreferrer";
+      boton.removeAttribute("aria-disabled");
+
+      if (etiqueta) {
+        etiqueta.textContent = formulario.etiqueta;
+      }
+
+      if (aviso) {
+        aviso.textContent = " (se abre en una pestaña nueva)";
+      }
+
+      if (estado) {
+        estado.hidden = true;
+      }
+    } else {
+      boton.removeAttribute("href");
+      boton.removeAttribute("target");
+      boton.removeAttribute("rel");
+      boton.setAttribute("aria-disabled", "true");
+
+      if (etiqueta) {
+        etiqueta.textContent = "Formulario no disponible";
+      }
+
+      if (aviso) {
+        aviso.textContent = "";
+      }
+
+      if (estado) {
+        estado.hidden = false;
+      }
+    }
+  });
+}
+
+configurarFormularios();

@@ -33,6 +33,7 @@
         padding-top: 32px;
       "
     >
+
       <section class="card hero" aria-labelledby="titulo">
         <div class="dot y" aria-hidden="true"></div>
         <div class="dot b" aria-hidden="true"></div>
@@ -40,9 +41,10 @@
         <div class="hero-text">
           <h1 id="titulo">Contacto y Admisiones</h1>
           <p>
-            [Una o dos oraciones sencillas que expliquen que esta página ayuda
-            a las familias, los voluntarios y los visitantes a encontrar la
-            mejor manera de comunicarse con el Centro.]
+            En Centro VIAS, estamos aquí para orientarte y acompañarte.
+            Conoce nuestro proceso de admisión, descubre cómo colaborar
+            como voluntario y encuentra la mejor manera de comunicarte
+            con nosotros.
           </p>
         </div>
       </section>
@@ -152,11 +154,31 @@
 
               <div class="formcard g">
                 <h3>Formulario del participante y su encargado</h3>
-                <p>[Una oración sobre lo que pide el formulario, para que las familias sepan qué preparar.]</p>
-                <a class="btn" href="#" data-formulario="solicitud">Abrir el formulario de solicitud<span class="sr" data-nueva></span></a>
+
+                <p>
+                  Completa el formulario para iniciar el proceso
+                  de admisión en Centro VIAS.
+                </p>
+
+                <div class="form-status" data-form-status="solicitud">
+                  <strong>Formulario próximamente disponible</strong>
+                  <p>
+                    Mientras tanto, puedes comunicarte directamente
+                    con nuestro personal.
+                  </p>
+                </div>
+
+                <a class="btn"
+                  data-formulario="solicitud"
+                  role="link"
+                  aria-disabled="true">
+                  <span data-form-label>Formulario no disponible</span>
+                  <span class="sr" data-nueva></span>
+                </a>
+
                 <p class="alt">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1F2A1D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"></path></svg>
-                  <span>¿Prefieres hablar primero? Llama al <a href="tel:+19392950020">939-295-0020</a>.</span>
+                  ¿Prefieres hablar primero? Llama al
+                  <a href="tel:+19392950020">939-295-0020</a>.
                 </p>
               </div>
 
@@ -190,14 +212,35 @@
                   <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5073FF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"></path></svg>[Una manera en que los voluntarios pueden ayudar]</li>
                 </ul>
               </div>
-
+              
               <div class="formcard b">
                 <h3>Formulario de interés para voluntarios</h3>
-                <p>[Una oración sobre lo que pide el formulario y cómo el Centro da seguimiento.]</p>
-                <a class="btn" href="#" data-formulario="voluntariado">Abrir el formulario de voluntariado<span class="sr" data-nueva></span></a>
+
+                <p>
+                  Comparte tu interés en colaborar con Centro VIAS.
+                </p>
+
+                <div class="form-status" data-form-status="voluntariado">
+                  <strong>Formulario próximamente disponible</strong>
+                  <p>
+                    Puedes comunicarte con nosotros para conocer
+                    las oportunidades de voluntariado.
+                  </p>
+                </div>
+
+                <a class="btn"
+                  data-formulario="voluntariado"
+                  role="link"
+                  aria-disabled="true">
+                  <span data-form-label>Formulario no disponible</span>
+                  <span class="sr" data-nueva></span>
+                </a>
+
                 <p class="alt">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1F2A1D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg>
-                  <span>¿Tienes preguntas? Escribe a <a href="mailto:administracion@centrovias.com">administracion@centrovias.com</a>.</span>
+                  ¿Tienes preguntas? Escribe a
+                  <a href="mailto:administracion@centrovias.com">
+                    administracion@centrovias.com
+                  </a>.
                 </p>
               </div>
             </div>
