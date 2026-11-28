@@ -1,10 +1,10 @@
 const perfilesPredeterminados = [
-  { id: "team-profile-1", nombre: "[Nombre completo]", rol: "[Cargo]", bio: "[Dos o tres oraciones sobre esta persona y lo que hace en Centro Vías.]", foto: "", alt: "" },
-  { id: "team-profile-2", nombre: "[Nombre completo]", rol: "[Cargo]", bio: "[Dos o tres oraciones sobre esta persona y lo que hace en Centro Vías.]", foto: "", alt: "" },
-  { id: "team-profile-3", nombre: "[Nombre completo]", rol: "[Cargo]", bio: "[Dos o tres oraciones sobre esta persona y lo que hace en Centro Vías.]", foto: "", alt: "" },
-  { id: "team-profile-4", nombre: "[Nombre completo]", rol: "[Cargo]", bio: "[Dos o tres oraciones sobre esta persona y lo que hace en Centro Vías.]", foto: "", alt: "" },
-  { id: "team-profile-5", nombre: "[Nombre completo]", rol: "[Cargo]", bio: "[Dos o tres oraciones sobre esta persona y lo que hace en Centro Vías.]", foto: "", alt: "" },
-  { id: "team-profile-6", nombre: "[Nombre completo]", rol: "[Cargo]", bio: "[Dos o tres oraciones sobre esta persona y lo que hace en Centro Vías.]", foto: "", alt: "" },
+  { id: "team-profile-1", nombre: "[Nombre completo]", rol: "[Cargo]", bio: "[Dos o tres oraciones sobre esta persona y lo que hace en Centro VIAS.]", foto: "", alt: "" },
+  { id: "team-profile-2", nombre: "[Nombre completo]", rol: "[Cargo]", bio: "[Dos o tres oraciones sobre esta persona y lo que hace en Centro VIAS.]", foto: "", alt: "" },
+  { id: "team-profile-3", nombre: "[Nombre completo]", rol: "[Cargo]", bio: "[Dos o tres oraciones sobre esta persona y lo que hace en Centro VIAS.]", foto: "", alt: "" },
+  { id: "team-profile-4", nombre: "[Nombre completo]", rol: "[Cargo]", bio: "[Dos o tres oraciones sobre esta persona y lo que hace en Centro VIAS.]", foto: "", alt: "" },
+  { id: "team-profile-5", nombre: "[Nombre completo]", rol: "[Cargo]", bio: "[Dos o tres oraciones sobre esta persona y lo que hace en Centro VIAS.]", foto: "", alt: "" },
+  { id: "team-profile-6", nombre: "[Nombre completo]", rol: "[Cargo]", bio: "[Dos o tres oraciones sobre esta persona y lo que hace en Centro VIAS.]", foto: "", alt: "" },
 ];
 
 const colores = ["t-g", "t-y", "t-b"];
@@ -35,28 +35,47 @@ function normalizarCategoria(perfil) {
   return "encargado";
 }
 
+
 async function cargarPerfiles() {
-  try {
-    const response = await fetch("/api/team", { cache: "no-store" });
-    if (response.ok) {
+  const rutas = [
+    "/api/team",
+    "/data/team.json"
+  ];
+
+  for (const ruta of rutas) {
+    try {
+      const response = await fetch(ruta, {
+        cache: "no-store"
+      });
+
+      if (!response.ok) continue;
+
       const data = await response.json();
-      if (Array.isArray(data.profiles) && data.profiles.length > 0) {
+
+      if (Array.isArray(data.profiles)) {
         perfiles = data.profiles.map((perfil) => ({
           ...perfil,
           categoria: normalizarCategoria(perfil),
         }));
+
+        console.log("Perfiles cargados desde:", ruta);
+        break;
       }
+    } catch (error) {
+      console.warn("No se pudo cargar:", ruta, error);
     }
-  } catch (_error) {
-    // Keep the formatted placeholders if team data cannot be loaded.
   }
 
   try {
-    const session = await fetch("/api/session", { credentials: "same-origin" });
+    const session = await fetch("/api/session", {
+      credentials: "same-origin"
+    });
+
     esAdministrador = session.ok;
   } catch (_error) {
     esAdministrador = false;
   }
+
   renderizarEquipo();
 }
 
@@ -89,22 +108,27 @@ function crearTarjeta(persona, indice) {
 
   if (persona.foto) {
     const img = document.createElement("img");
-    img.src = persona.foto.startsWith("Images/photos/")
-      ? "/api/photo?path=" + encodeURIComponent(persona.foto)
-      : persona.foto.startsWith("/")
+
+    img.alt = persona.alt || persona.nombre;
+    img.loading = "lazy";
+
+    if (persona.foto.startsWith("Images/photos/")) {
+      img.onerror = () => {
+        img.onerror = null;
+        img.src = "/" + persona.foto;
+      };
+
+      img.src = "/api/photo?path=" +
+        encodeURIComponent(persona.foto);
+    } else {
+      img.src = persona.foto.startsWith("/")
         ? persona.foto
         : "/" + persona.foto;
-    img.alt = persona.alt || "Foto de " + persona.nombre;
-    img.loading = "lazy";
+    }
+
     foto.appendChild(img);
   } else {
-    foto.setAttribute("role", "img");
-    foto.setAttribute("aria-label", "Espacio reservado para la foto de " + persona.nombre);
     foto.innerHTML = icono;
-    const etiqueta = document.createElement("span");
-    etiqueta.className = "tag";
-    etiqueta.textContent = "Foto";
-    foto.appendChild(etiqueta);
   }
 
   const info = document.createElement("div");
