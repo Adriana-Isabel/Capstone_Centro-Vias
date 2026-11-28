@@ -18,7 +18,7 @@ function decodeFile(file) {
 export async function onRequestGet(context) {
   const { env } = context;
   if (!env.GITHUB_TOKEN) {
-    return json({ profiles: [] }, 503);
+    return json({ error: 'Servicio de perfiles no disponible.' }, 503);
   }
 
   try {
@@ -31,6 +31,5 @@ export async function onRequestGet(context) {
     // The frontend static fallback remains available.
   }
 
-  return json({ profiles: [] }, 200);
+  return json({ error: 'No se pudieron cargar los perfiles.' }, 503);
 }
-

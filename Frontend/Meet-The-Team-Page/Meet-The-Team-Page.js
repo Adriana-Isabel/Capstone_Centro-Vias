@@ -35,12 +35,13 @@ function normalizarCategoria(perfil) {
   return "encargado";
 }
 
-
 async function cargarPerfiles() {
   const rutas = [
     "/api/team",
     "/data/team.json"
   ];
+
+  let datosDesdeApi = false;
 
   for (const ruta of rutas) {
     try {
@@ -58,6 +59,8 @@ async function cargarPerfiles() {
           categoria: normalizarCategoria(perfil),
         }));
 
+        datosDesdeApi = ruta === "/api/team";
+
         console.log("Perfiles cargados desde:", ruta);
         break;
       }
@@ -71,7 +74,14 @@ async function cargarPerfiles() {
       credentials: "same-origin"
     });
 
-    esAdministrador = session.ok;
+    esAdministrador = session.ok && datosDesdeApi;
+
+    if (session.ok && !datosDesdeApi) {
+      console.warn(
+        "La edición está deshabilitada porque " +
+        "no se pudieron recuperar los perfiles del servidor."
+      );
+    }
   } catch (_error) {
     esAdministrador = false;
   }
@@ -231,17 +241,34 @@ function crearTarjeta(persona, indice) {
       persona.nombre = nombre.textContent.trim();
       persona.rol = rol.textContent.trim();
       persona.bio = bio.textContent.trim();
-      guardarPerfiles(status).then(renderizarEquipo);
+      guardarPerfiles(status).then((saved) => {
+        if (saved) {
+          renderizarEquipo();
+        }
+      });
     });
 
     const removeProfileButton = document.createElement("button");
     removeProfileButton.type = "button";
-    removeProfileButton.className = "profile-action danger";
+    removeProfileButton.className = "profile-action secondary";
     removeProfileButton.textContent = "Eliminar perfil";
-    removeProfileButton.addEventListener("click", () => {
+
+    removeProfileButton.addEventListener("click", async () => {
       if (!window.confirm("¿Eliminar este perfil?")) return;
-      perfiles = perfiles.filter((profile) => profile !== persona);
-      guardarPerfiles(status).then(renderizarEquipo);
+
+      const perfilesAnteriores = [...perfiles];
+
+      perfiles = perfiles.filter(
+        (profile) => profile !== persona
+      );
+
+      const saved = await guardarPerfiles(status);
+
+      if (saved) {
+        renderizarEquipo();
+      } else {
+        perfiles = perfilesAnteriores;
+      }
     });
 
     actions.append(fileInput, photoButton, removePhotoButton, saveButton, removeProfileButton);
