@@ -777,3 +777,40 @@ footer a:focus-visible,
         font-size: 30px;
     }
 }
+
+/* Estado de disponibilidad de los formularios */
+.form-status {
+    width: 100%;
+    padding: 16px 20px;
+    background: #FBF6D6;
+    border-radius: 14px;
+    color: var(--ink);
+}
+
+.form-status strong {
+    display: block;
+    margin-bottom: 6px;
+}
+
+.form-status p {
+    font-size: 15px;
+    color: var(--mut);
+}
+
+.form-status[hidden] {
+    display: none;
+}
+
+/* Formularios no disponibles */
+.btn[aria-disabled="true"] {
+    background: var(--ln);
+    border-color: var(--ln);
+    color: var(--mut);
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.formcard .alt {
+    flex-wrap: wrap;
+    overflow-wrap: anywhere;
+}
