@@ -1,75 +1,130 @@
+
 {
   "profiles": [
     {
       "id": "team-profile-1",
-      "nombre": "Saul E. Caban Torres",
-      "rol": "[S.E.]",
-      "bio": "Testing message saves",
-      "foto": "Images/photos/team-profile-1-0c18106d-c2f1-419a-ad3a-bc91d19e1724.jpg",
-      "alt": "Saul E. Caban Torres",
+      "nombre": "Stephanie Suárez Ortiz",
+      "rol": "Directora",
+      "bio": "",
+      "foto": "",
+      "alt": "",
       "categoria": "encargado"
     },
     {
-      "id": "team-profile-6",
-      "nombre": "[Nombre completo]",
-      "rol": "[Cargo]",
-      "bio": "[Dos o tres oraciones sobre esta persona y lo que hace en Centro Vías.]",
+      "id": "team-profile-2",
+      "nombre": "Natalia María Ramírez",
+      "rol": "Subdirectora",
+      "bio": "",
       "foto": "",
       "alt": "",
       "categoria": "encargado"
     },
     {
       "id": "team-profile-3",
-      "nombre": "[Nombre completo]",
-      "rol": "[Cargo]",
-      "bio": "[Dos o tres oraciones sobre esta persona y lo que hace en Centro Vías.]",
+      "nombre": "Gabriel Soto Méndez",
+      "rol": "Asistente",
+      "bio": "",
       "foto": "",
       "alt": "",
       "categoria": "encargado"
     },
     {
       "id": "team-profile-4",
-      "nombre": "[Nombre completo]",
-      "rol": "[Cargo]",
-      "bio": "[Dos o tres oraciones sobre esta persona y lo que hace en Centro Vías.]",
+      "nombre": "Ashley Suárez",
+      "rol": "Asistente",
+      "bio": "",
       "foto": "",
       "alt": "",
       "categoria": "encargado"
     },
     {
       "id": "team-profile-5",
-      "nombre": "[Nombre completo]",
-      "rol": "[Cargo]",
-      "bio": "[Dos o tres oraciones sobre esta persona y lo que hace en Centro Vías.]",
+      "nombre": "María Alejandra Vázquez",
+      "rol": "Asistente",
+      "bio": "",
       "foto": "",
       "alt": "",
       "categoria": "encargado"
     },
     {
       "id": "team-profile-6",
-      "nombre": "[Nombre completo]",
-      "rol": "[Cargo]",
-      "bio": "[Dos o tres oraciones sobre esta persona y lo que hace en Centro Vías.]",
+      "nombre": "Luis Francisco Cruz",
+      "rol": "Asistente",
+      "bio": "",
       "foto": "",
       "alt": "",
       "categoria": "encargado"
     },
     {
-      "id": "team-profile-1795555767319",
-      "nombre": "[Nombre completo]",
-      "rol": "[Cargo]",
-      "bio": "[Dos o tres oraciones sobre esta persona.]",
+      "id": "team-profile-voluntario-1",
+      "nombre": "Carlos Burgos",
+      "rol": "Voluntario",
+      "bio": "",
       "foto": "",
       "alt": "",
-      "categoria": "encargado"
+      "categoria": "voluntario"
     },
     {
-      "id": "team-profile-voluntario-1795558923228",
-      "nombre": "[Nombre completo]",
-      "rol": "[Cargo]",
-      "bio": "[Dos o tres oraciones sobre esta persona.]",
+      "id": "team-profile-adjunta-directores-1",
+      "nombre": "María Isabel Suárez Perezguerra, MBA",
+      "rol": "Presidenta de la Junta de Directores",
+      "bio": "La mamá de Juliana. Una de mis frases favoritas: «La verdadera medida de cualquier sociedad se encuentra en cómo trata a sus miembros más vulnerables». — Atribuida a Gandhi",
+      "foto": "Images/photos/maria-suarez.jpg",
+      "alt": "Retrato de María Isabel Suárez Perezguerra",
+      "categoria": "adjunta-directores"
+    },
+    {
+      "id": "team-profile-adjunta-directores-2",
+      "nombre": "Ernesto L. Ramírez López de Victoria, DMD",
+      "rol": "Secretario",
+      "bio": "Profesor Asociado de la Escuela de Medicina Dental de PHSU. Decano de Innovación y Participación Institucional.",
+      "foto": "Images/photos/ernesto-ramirez.png",
+      "alt": "Retrato del Dr. Ernesto L. Ramírez López de Victoria",
+      "categoria": "adjunta-directores"
+    },
+    {
+      "id": "team-profile-adjunta-directores-3",
+      "nombre": "Carolyn Costas",
+      "rol": "Tesorera",
+      "bio": "",
       "foto": "",
       "alt": "",
+      "categoria": "adjunta-directores"
+    },
+    {
+      "id": "team-profile-adjunta-directores-4",
+      "nombre": "Dr. Orlando Torres",
+      "rol": "Miembro de la Junta",
+      "bio": "Decano Asociado de Asuntos Estudiantiles — Ponce Health Sciences University, School of Medicine.",
+      "foto": "Images/photos/orlando-torres.jpg",
+      "alt": "Retrato del Dr. Orlando Torres",
+      "categoria": "adjunta-directores"
+    },
+    {
+      "id": "team-profile-adjunta-directores-5",
+      "nombre": "Ing. Reynaldo Quiñones",
+      "rol": "Miembro de la Junta",
+      "bio": "Chief Operating Officer — CIRACET CORP.",
+      "foto": "Images/photos/reynaldo-quinones.png",
+      "alt": "Retrato del Ing. Reynaldo Quiñones",
+      "categoria": "adjunta-directores"
+    },
+    {
+      "id": "team-profile-adjunta-directores-6",
+      "nombre": "Dra. Iris H. Pons Cruz, PhD, BCBA-D",
+      "rol": "Miembro de la Junta",
+      "bio": "Fundadora y Presidenta — Starbright Academy.",
+      "foto": "Images/photos/iris-pons.png",
+      "alt": "Retrato de la Dra. Iris H. Pons Cruz",
+      "categoria": "adjunta-directores"
+    },
+    {
+      "id": "team-profile-adjunta-directores-7",
+      "nombre": "Rosa Torres",
+      "rol": "Miembro de la Junta",
+      "bio": "Programática — Conexión Laboral, Ponce.",
+      "foto": "Images/photos/rosa-torres.png",
+      "alt": "Retrato de Rosa Torres",
       "categoria": "adjunta-directores"
     }
   ]
